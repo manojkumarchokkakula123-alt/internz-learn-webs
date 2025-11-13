@@ -1,0 +1,3031 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InternzLearn - Launching Careers</title>
+    <style>
+        /* Basic Reset and Font */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f7f6; /* Very Light Gray/Off-White */
+            color: #333;
+        }
+
+        /* Container for Centering */
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px 0;
+        }
+
+        /* Header Section Styling */
+        .header {
+            text-align: center;
+            padding: 60px 20px;
+            background-color: #e0f7fa; /* Light Cyan/Aqua */
+            margin-bottom: 20px;
+        }
+
+        /* Welcome Text Styling */
+        .welcome-title {
+            font-size: 3em;
+            margin-bottom: 5px;
+            font-weight: 800;
+        }
+
+        .welcome-title span.internz {
+            color: #2196F3; /* Blue */
+        }
+
+        .welcome-title span.learn {
+            color: #4CAF50; /* Green */
+        }
+
+        .tagline {
+            font-size: 1.2em;
+            color: #555;
+            margin-bottom: 25px;
+            font-style: italic;
+        }
+
+        /* Big Bold Launching Careers Text */
+        .launching-careers {
+            font-size: 4.5em; /* Big Bold */
+            font-weight: 900;
+            color: #00796B; /* Dark Teal */
+            margin: 30px 0;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+            line-height: 1.1;
+        }
+
+        /* Content Text Styling */
+        .intro-text {
+            font-size: 1.1em;
+            line-height: 1.6;
+            margin-bottom: 40px;
+            text-align: center;
+            color: #444;
+        }
+
+        /* Buttons Styling */
+        .button-group {
+            text-align: center;
+            margin-top: 40px;
+            margin-bottom: 50px;
+        }
+
+        .btn {
+            background-color: #FFC107; /* Yellow/Amber */
+            color: #333;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1.1em;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 8px;
+            margin: 0 15px;
+            transition: background-color 0.3s, transform 0.2s;
+            text-decoration: none; /* For the link buttons */
+            display: inline-block;
+        }
+
+        .btn:hover {
+            background-color: #FFA000; /* Darker Yellow/Amber */
+            transform: scale(1.05);
+        }
+
+        .btn-quiz {
+            background-color: #F44336; /* Red for Quiz */
+            color: white;
+        }
+
+        .btn-quiz:hover {
+            background-color: #D32F2F; /* Darker Red */
+        }
+
+        /* Mission/Vision/Why Choose Us Section */
+        .section {
+            padding: 40px 20px;
+            margin-bottom: 30px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .section h2 {
+            text-align: center;
+            color: #3F51B5; /* Indigo */
+            font-size: 2em;
+            margin-bottom: 30px;
+            border-bottom: 3px solid #FFC107;
+            display: inline-block;
+            padding-bottom: 5px;
+        }
+
+        .mission-content {
+            text-align: center;
+            font-size: 1.1em;
+            line-height: 1.7;
+            margin-bottom: 30px;
+        }
+
+        .mission-content b {
+            color: #4CAF50; /* Green */
+        }
+
+        /* Features Grid */
+        .features-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .feature-card {
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 8px;
+            flex-basis: calc(33% - 20px);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .feature-card h3 {
+            color: #2196F3; /* Blue */
+            margin-top: 10px;
+            font-size: 1.4em;
+        }
+
+        .feature-card p {
+            font-size: 0.95em;
+            color: #666;
+        }
+
+        /* Course List (Hidden by default, shown when 'Explore' is clicked) */
+        #course-list {
+            display: none; /* Hidden initially */
+            padding-top: 50px;
+        }
+
+        .course-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr); /* 4 columns */
+            gap: 25px;
+            margin-top: 20px;
+            padding: 20px;
+            background-color: #ffffff; /* White background for course section */
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+        }
+        
+        /* Adjusted for 24 courses (4x6 layout) - The grid will adapt */
+
+        .course-item {
+            text-align: center;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            background-color: #e8f5e9; /* Lightest Green */
+        }
+
+        .course-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .course-item img {
+            width: 100%;
+            height: 150px; /* Fixed height for consistent 4x4-like picture sizing */
+            object-fit: cover;
+            /* Placeholder for anime style */
+            background-color: #B3E5FC; /* Light Blue Placeholder */
+        }
+
+        .course-item p {
+            padding: 10px 5px;
+            margin: 0;
+            font-weight: bold;
+            color: #333;
+            font-size: 0.9em;
+            text-transform: uppercase;
+        }
+
+        /* Footer for page end */
+        .footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #3F51B5; /* Indigo */
+            color: white;
+            margin-top: 50px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="header">
+    <h1 class="welcome-title"><span class="internz">INTERNZ</span><span class="learn">LEARN</span></h1>
+    <p class="tagline">Your Career, Our Responsibility</p>
+    
+    <h2 class="launching-careers">Launching Careers to New Heights</h2>
+    
+    <p class="intro-text">
+        Discover a path to success like no other. At **InternzLearn**, we're on a mission to empower you with game-changing skills, real-world experience, and boundless opportunities. Your career's next
+    </p>
+
+    <div class="button-group">
+        <button id="explore-btn" class="btn">Explore Course</button>
+        <a href="quiz.html" class="btn btn-quiz">Open Quiz</a>
+    </div>
+</div>
+
+<div class="container">
+
+    <div class="section">
+        <h2>Equipping You for Success with InternzLearn</h2>
+
+        <div class="mission-content">
+            <p>
+                At **Internz Learn**, our commitment extends beyond traditional education. We provide a dynamic learning environment that not only equips you with essential skills but also fosters a mindset for continuous growth. Join us to experience a holistic approach to education, ensuring you not only achieve professional excellence but also thrive in your dream career.
+            </p>
+        </div>
+
+        <h2 style="margin-top: 40px;">Why Choose Us?</h2>
+        <div class="features-grid">
+            
+            <div class="feature-card">
+                <h3>Expertise & Faculty</h3>
+                <p>Learn from seasoned professionals and industry leaders who bring their real-world experience directly to the classroom.</p>
+            </div>
+            
+            <div class="feature-card">
+                <h3>Flexible Learning</h3>
+                <p>Our online and in-person training options cater to diverse learning preferences and schedules, fitting your life.</p>
+            </div>
+            
+            <div class="feature-card">
+                <h3>Hands-on Experience</h3>
+                <p>Gain practical, industry-relevant skills through projects, workshops, and real-world internships. Get ready to work!</p>
+            </div>
+
+            <div class="feature-card">
+                <h3>Certifications</h3>
+                <p>Receive recognized certifications that validate your new skills and significantly boost your professional profile.</p>
+            </div>
+            
+            <div class="feature-card">
+                <h3>Our Collaboration</h3>
+                <p>Benefit from our extensive network of 100+ Brand Partners, connecting you directly to boundless opportunities.</p>
+            </div>
+            
+            <div class="feature-card">
+                <h3>Vision & Mission</h3>
+                <p>Our vision is to nurture futures by empowering through internships, mentorship, and bridging the gap to technology.</p>
+            </div>
+            
+        </div>
+    </div>
+    
+    <div id="course-list">
+        <h2 style="text-align: center;">Our 24 Comprehensive Courses</h2>
+        <div class="course-grid">
+            <div class="course-item">
+                <img src="placeholder-ai.jpg" alt="Artificial Intelligence">
+                <p>ARTIFICIAL INTELLIGENCE</p>
+            </div>
+            <div class="course-item">
+                <img src="placeholder-ml.jpg" alt="Machine Learning">
+                <p>MACHINE LEARNING</p>
+            </div>
+            <div class="course-item">
+                <img src="placeholder-ds.jpg" alt="Data Science">
+                <p>DATA SCIENCE</p>
+            </div>
+            <div class="course-item">
+                <img src="placeholder-web.jpg" alt="Web Development">
+                <p>WEB DEVELOPMENT</p>
+            </div>
+            <div class="course-item">
+                <img src="placeholder-android.jpg" alt="Android Development">
+                <p>ANDROID DEVELOPMENT</p>
+            </div>
+            <div class="course-item">
+                <img src="placeholder-aws.jpg" alt="Cloud Computing- AWS">
+                <p>Cloud Computing- AWS</p>
+            </div>
+            <div class="course-item">
+                <img src="placeholder-security.jpg" alt="Cyber Security">
+                <p>Cyber Security</p>
+            </div>
+            <div class="course-item">
+                <img src="placeholder-java.jpg" alt="Java">
+                <p>Java</p>
+            </div>
+            <div class="course-item">
+                <img src="placeholder-python.jpg" alt="Python">
+                <p>Python</p>
+            </div>
+            <div class="course-item">
+                <img src="placeholder-embedded.jpg" alt="Embedded System">
+                <p>Embedded System</p>
+            </div>
+            <div class="course-item">
+                <img src="placeholder-iot.jpg" alt="Internet of Things">
+                <p>Internet of Things</p>
+            </div>
+            <div class="course-item">
+                <img src="placeholder-hev.jpg" alt="Hybrid Electric Vehicle">
+                <p>Hybrid Electric Vehicle</p>
+            </div>
+            <div class="course-item">
+                <img src="placeholder-robotics.jpg" alt="Robotics">
+                <p>Robotics</p>
+            </div>
+            <div class="course-item">
+                <img src="placeholder-autocad.jpg" alt="AutoCAD">
+                <p>AutoCAD</p>
+            </div>
+            <div class="course-item">
+                <img src="placeholder-construction.jpg" alt="Construction Planning">
+                <p>Construction Planning</p>
+            </div>
+            <div class="course-item">
+                <img src="placeholder-icengine.jpg" alt="IC Engine Design">
+                <p>IC Engine Design</p>
+            </div>
+            <div class="course-item">
+                <img src="placeholder-hr.jpg" alt="Human Resources">
+                <p>Human Resources</p>
+            </div>
+            <div class="course-item">
+                <img src="placeholder-finance.jpg" alt="Finance">
+                <p>Finance</p>
+            </div>
+            <div class="course-item">
+                <img src="placeholder-sales.jpg" alt="Sales & Marketing">
+                <p>Sales & Marketing</p>
+            </div>
+            <div class="course-item">
+                <img src="placeholder-digital.jpg" alt="Digital Marketing">
+                <p>Digital Marketing</p>
+            </div>
+            <div class="course-item">
+                <img src="placeholder-stock.jpg" alt="Stock Market">
+                <p>Stock Market</p>
+            </div>
+            <div class="course-item">
+                <img src="placeholder-biotech.jpg" alt="Industrial Biotechnology">
+                <p>Industrial Biotechnology</p>
+            </div>
+            <div class="course-item">
+                <img src="placeholder-psychology.jpg" alt="Psychology">
+                <p>Psychology</p>
+            </div>
+            <div class="course-item">
+                <img src="placeholder-medical.jpg" alt="Medical Coding">
+                <p>Medical Coding</p>
+            </div>
+            <div class="course-item">
+                <img src="placeholder-vlsi.jpg" alt="VLSI">
+                <p>VLSI</p>
+            </div>
+            
+             </div>
+    </div>
+</div>
+
+<div class="footer">
+    &copy; 2025 InternzLearn. All rights reserved.
+</div>
+
+<script>
+    document.getElementById('explore-btn').addEventListener('click', function() {
+        var courseList = document.getElementById('course-list');
+        if (courseList.style.display === 'none' || courseList.style.display === '') {
+            courseList.style.display = 'block';
+            this.textContent = 'Hide Courses';
+            // Scroll to the course list
+            courseList.scrollIntoView({ behavior: 'smooth' });
+        } else {
+            courseList.style.display = 'none';
+            this.textContent = 'Explore Course';
+        }
+    });
+</script>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InternzLearn - Open Quiz</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f7f6; /* Very Light Gray/Off-White */
+            color: #333;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 900px;
+            margin: 30px auto;
+            padding: 30px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #3F51B5; /* Indigo */
+            margin-bottom: 30px;
+            border-bottom: 3px solid #FFC107;
+            padding-bottom: 10px;
+        }
+
+        /* Form Styling */
+        .data-form label {
+            display: block;
+            font-weight: bold;
+            margin-top: 15px;
+            color: #4CAF50; /* Green */
+        }
+
+        .data-form input[type="text"],
+        .data-form input[type="email"],
+        .data-form input[type="tel"],
+        .data-form select {
+            width: 100%;
+            padding: 12px;
+            margin-top: 5px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box; /* Padding doesn't affect overall width */
+            font-size: 1em;
+        }
+
+        /* Quiz Selection Button */
+        #start-quiz-btn {
+            background-color: #FFC107; /* Yellow/Amber */
+            color: #333;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1.1em;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 8px;
+            transition: background-color 0.3s;
+            display: block;
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        #start-quiz-btn:hover {
+            background-color: #FFA000;
+        }
+
+        /* Quiz Area Styling */
+        #quiz-area {
+            display: none; /* Hidden initially */
+            margin-top: 40px;
+            border-top: 2px solid #2196F3; /* Blue separator */
+            padding-top: 30px;
+        }
+
+        .question {
+            margin-bottom: 25px;
+            padding: 15px;
+            border-left: 5px solid #4CAF50; /* Green highlight */
+            background-color: #f9f9f9;
+            border-radius: 5px;
+        }
+
+        .question p {
+            font-weight: bold;
+            font-size: 1.1em;
+            color: #3F51B5; /* Indigo */
+            margin-top: 0;
+        }
+
+        .question label {
+            display: block;
+            margin: 10px 0;
+            cursor: pointer;
+            transition: background-color 0.2s;
+            padding: 8px;
+            border-radius: 4px;
+        }
+
+        .question label:hover {
+            background-color: #e3f2fd; /* Lightest Blue */
+        }
+
+        .question input[type="radio"] {
+            margin-right: 10px;
+        }
+
+        /* Submit Button */
+        .submit-btn {
+            background-color: #00796B; /* Dark Teal */
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1.2em;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 8px;
+            transition: background-color 0.3s;
+            display: block;
+            width: 100%;
+            margin-top: 40px;
+        }
+
+        .submit-btn:hover {
+            background-color: #004D40;
+        }
+        
+        .back-home {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            color: #2196F3;
+            text-decoration: none;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>🚀 Open Quiz Challenge 🧠</h1>
+    <a href="index.html" class="back-home">← Back to Home Page</a>
+
+    <form id="student-data-form" class="data-form">
+        <label for="name">Name</label>
+        <input type="text" id="name" required>
+
+        <label for="email">Email</label>
+        <input type="email" id="email" required>
+
+        <label for="phone">Phone Number</label>
+        <input type="tel" id="phone" required>
+
+        <label for="college">College</label>
+        <input type="text" id="college" required>
+
+        <label for="department">Department</label>
+        <input type="text" id="department" required>
+
+        <label for="year">Year</label>
+        <input type="text" id="year" required>
+
+        <label for="course-select">Choose a Course for Quiz</label>
+        <select id="course-select" required>
+            <option value="">-- Select a Course --</option>
+            <option value="Artificial Intelligence">ARTIFICIAL INTELLIGENCE</option>
+            <option value="Machine Learning">MACHINE LEARNING</option>
+            <option value="Data Science">DATA SCIENCE</option>
+            <option value="Web Development">WEB DEVELOPMENT</option>
+            <option value="Android Development">ANDROID DEVELOPMENT</option>
+            <option value="Cloud Computing- AWS">Cloud Computing- AWS</option>
+            <option value="Cyber Security">Cyber Security</option>
+            <option value="Java">Java</option>
+            <option value="Python">Python</option>
+            <option value="Embedded System">Embedded System</option>
+            <option value="Internet of Things">Internet of Things</option>
+            <option value="Hybrid Electric Vehicle">Hybrid Electric Vehicle</option>
+            <option value="Robotics">Robotics</option>
+            <option value="AutoCAD">AutoCAD</option>
+            <option value="Construction Planning">Construction Planning</option>
+            <option value="IC Engine Design">IC Engine Design</option>
+            <option value="Human Resources">Human Resources</option>
+            <option value="Finance">Finance</option>
+            <option value="Sales & Marketing">Sales & Marketing</option>
+            <option value="Digital Marketing">Digital Marketing</option>
+            <option value="Stock Market">Stock Market</option>
+            <option value="Industrial Biotechnology">Industrial Biotechnology</option>
+            <option value="Psychology">Psychology</option>
+            <option value="Medical Coding">Medical Coding</option>
+            <option value="VLSI">VLSI</option>
+        </select>
+        
+        <button type="button" id="start-quiz-btn">Start Quiz</button>
+    </form>
+    
+    <div id="quiz-area">
+        <h2 id="quiz-title" style="text-align: center; color: #F44336;">Quiz on Selected Course</h2>
+        <form id="quiz-form">
+            </form>
+        <button type="submit" class="submit-btn" form="quiz-form">Submit Quiz & Get Results</button>
+    </div>
+
+</div>
+
+<script>
+    // Define the quizzes data structure
+    const quizzes = {
+        "Artificial Intelligence": [
+            {
+                q: "1. Definition of Machine Learning\nWhich definition best describes Machine Learning (ML)?",
+                options: ["Programming computers to perform tasks by explicitly coding all rules and decision paths.", "The use of logic and reasoning to solve complex problems without data.", "The field of study that gives computers the ability to learn without being explicitly programmed.", "Applying statistical methods only to structured, numerical data."],
+                answer: "C"
+            },
+            {
+                q: "2. Learning Paradigms\nIn which type of learning is the model trained on data that includes input features along with the correct target output (labels)?",
+                options: ["Unsupervised Learning", "Supervised Learning", "Reinforcement Learning", "Semi-supervised Learning"],
+                answer: "B"
+            },
+            {
+                q: "3. Supervised Learning Tasks\nIf you use an ML model to predict a continuous numerical value (like house price or temperature), what kind of task are you performing?",
+                options: ["Classification", "Regression", "Clustering", "Dimensionality Reduction"],
+                answer: "B"
+            },
+            {
+                q: "4. Unsupervised Learning Tasks\nWhich algorithm is typically used for segmenting a customer base into distinct groups based on purchasing behavior?",
+                options: ["Linear Regression", "Support Vector Machine (SVM)", "K-Means Clustering", "Decision Tree"],
+                answer: "C"
+            },
+            {
+                q: "5. Overfitting\nWhich scenario indicates that a model is overfitting?",
+                options: ["High error on both the training data and the test data.", "Low error on the training data and high error on the test data.", "Low error on both the training data and the test data.", "High bias and low variance."],
+                answer: "B"
+            },
+            {
+                q: "6. Bias-Variance Trade-off\nA model with high bias is generally characterized by:",
+                options: ["Being too complex and capturing noise in the training data.", "Being too simple and consistently missing the relationship between features and output.", "Having low prediction error on unseen data.", "Using too much training data."],
+                answer: "B"
+            },
+            {
+                q: "7. Model Evaluation\nThe F1 Score is the harmonic mean of which two metrics?",
+                options: ["Accuracy and Recall", "Specificity and Sensitivity", "Precision and Recall", "True Positive Rate and False Positive Rate"],
+                answer: "C"
+            },
+            {
+                q: "8. Decision Trees\nIn a Decision Tree algorithm, what criterion is commonly used to select the best feature for splitting a node?",
+                options: ["Root Mean Squared Error (RMSE)", "Information Gain or Gini Impurity", "Log Loss", "Manhattan Distance"],
+                answer: "B"
+            },
+            {
+                q: "9. Ensemble Methods\nWhich ensemble technique involves training multiple individual models independently and then taking a simple majority vote (for classification) or an average (for regression) of their predictions?",
+                options: ["Boosting", "Stacking", "Bagging (Bootstrap Aggregating)", "Adaboost"],
+                answer: "C"
+            },
+            {
+                q: "10. Neural Networks\nThe process of updating the weights and biases in a neural network to minimize the loss function is achieved using which primary optimization technique?",
+                options: ["Feature Scaling", "Gradient Descent", "K-Fold Cross-Validation", "Principal Component Analysis (PCA)"],
+                answer: "B"
+            },
+            {
+                q: "11. Support Vector Machines (SVM)\nWhat is the purpose of the Kernel Trick in Support Vector Machines?",
+                options: ["To simplify the calculation of the decision boundary in linear spaces.", "To implicitly map non-linearly separable data into a higher-dimensional feature space where it may become linearly separable.", "To reduce the number of features in the input data.", "To balance the dataset by oversampling the minority class."],
+                answer: "B"
+            },
+            {
+                q: "12. Dimensionality Reduction\nWhat is the primary goal of Principal Component Analysis (PCA)?",
+                options: ["To train a model using an unsupervised approach.", "To classify data points into predefined categories.", "To reduce the number of variables by finding new features (principal components) that capture the maximum variance in the data.", "To increase the complexity of a model to reduce bias."],
+                answer: "C"
+            },
+            {
+                q: "13. Cross-Validation\nWhich validation technique involves dividing the dataset into K equal subsets, training the model K times, and testing on a different subset each time?",
+                options: ["Holdout Validation", "K-Fold Cross-Validation", "Leave-One-Out Cross-Validation", "Bootstrap Aggregating"],
+                answer: "B"
+            },
+            {
+                q: "14. Linear Regression\nIn a Simple Linear Regression model, $Y = \\beta_0 + \\beta_1 X + \\epsilon$, what does $\\beta_1$ represent?",
+                options: ["The predicted value of Y when X is zero (Y-intercept).", "The residual error term.", "The slope, representing the change in Y for a one-unit change in X.", "The constant feature bias."],
+                answer: "C"
+            },
+            {
+                q: "15. Regularization\nL1 and L2 are common types of Regularization used to prevent overfitting. Which type is known for driving some feature weights exactly to zero, effectively performing feature selection?",
+                options: ["L1 Regularization (Lasso)", "L2 Regularization (Ridge)", "Elastic Net", "Dropout"],
+                answer: "A"
+            },
+            {
+                q: "16. K-Nearest Neighbors (KNN)\nThe K-Nearest Neighbors (KNN) algorithm is a type of:",
+                options: ["Parametric Model", "Non-parametric Model", "Model-based Clustering", "Deep Learning Model"],
+                answer: "B"
+            },
+            {
+                q: "17. Deep Learning\nWhat is the defining characteristic that distinguishes Deep Learning from traditional Machine Learning?",
+                options: ["Deep Learning models are exclusively used for text data.", "Deep Learning models are always faster to train.", "The use of multiple layers (deep architectures) in neural networks.", "The requirement for labeled training data."],
+                answer: "C"
+            },
+            {
+                q: "18. Reinforcement Learning (RL)\nIn the context of Reinforcement Learning, the numerical score or feedback that an agent receives from the environment after performing an action is called the:",
+                options: ["State", "Policy", "Reward", "Action Space"],
+                answer: "C"
+            },
+            {
+                q: "19. Data Preparation\nWhat process involves handling missing values, standardizing or normalizing features, and transforming categorical variables into a numerical format?",
+                options: ["Model Training", "Model Deployment", "Data Preprocessing/Data Wrangling", "Hyperparameter Tuning"],
+                answer: "C"
+            },
+            {
+                q: "20. Learning Curve\nIn the context of model diagnostics, a learning curve plots the model's performance (error or accuracy) against:",
+                options: ["The number of features used.", "The value of the F1 Score.", "The size of the training dataset.", "The complexity of the model (e.g., degree of a polynomial)."],
+                answer: "C"
+            }
+        ],
+        "Machine Learning": [
+            // Reusing the AI quiz questions as a placeholder for Machine Learning as they are highly relevant
+            {
+                q: "1. Definition of Machine Learning\nWhich definition best describes Machine Learning (ML)?",
+                options: ["Programming computers to perform tasks by explicitly coding all rules and decision paths.", "The use of logic and reasoning to solve complex problems without data.", "The field of study that gives computers the ability to learn without being explicitly programmed.", "Applying statistical methods only to structured, numerical data."],
+                answer: "C"
+            },
+            {
+                q: "2. Learning Paradigms\nIn which type of learning is the model trained on data that includes input features along with the correct target output (labels)?",
+                options: ["Unsupervised Learning", "Supervised Learning", "Reinforcement Learning", "Semi-supervised Learning"],
+                answer: "B"
+            },
+            {
+                q: "3. Supervised Learning Tasks\nIf you use an ML model to predict a continuous numerical value (like house price or temperature), what kind of task are you performing?",
+                options: ["Classification", "Regression", "Clustering", "Dimensionality Reduction"],
+                answer: "B"
+            },
+            {
+                q: "4. Unsupervised Learning Tasks\nWhich algorithm is typically used for segmenting a customer base into distinct groups based on purchasing behavior?",
+                options: ["Linear Regression", "Support Vector Machine (SVM)", "K-Means Clustering", "Decision Tree"],
+                answer: "C"
+            },
+            {
+                q: "5. Overfitting\nWhich scenario indicates that a model is overfitting?",
+                options: ["High error on both the training data and the test data.", "Low error on the training data and high error on the test data.", "Low error on both the training data and the test data.", "High bias and low variance."],
+                answer: "B"
+            },
+            {
+                q: "6. Bias-Variance Trade-off\nA model with high bias is generally characterized by:",
+                options: ["Being too complex and capturing noise in the training data.", "Being too simple and consistently missing the relationship between features and output.", "Having low prediction error on unseen data.", "Using too much training data."],
+                answer: "B"
+            },
+            {
+                q: "7. Model Evaluation\nThe F1 Score is the harmonic mean of which two metrics?",
+                options: ["Accuracy and Recall", "Specificity and Sensitivity", "Precision and Recall", "True Positive Rate and False Positive Rate"],
+                answer: "C"
+            },
+            {
+                q: "8. Decision Trees\nIn a Decision Tree algorithm, what criterion is commonly used to select the best feature for splitting a node?",
+                options: ["Root Mean Squared Error (RMSE)", "Information Gain or Gini Impurity", "Log Loss", "Manhattan Distance"],
+                answer: "B"
+            },
+            {
+                q: "9. Ensemble Methods\nWhich ensemble technique involves training multiple individual models independently and then taking a simple majority vote (for classification) or an average (for regression) of their predictions?",
+                options: ["Boosting", "Stacking", "Bagging (Bootstrap Aggregating)", "Adaboost"],
+                answer: "C"
+            },
+            {
+                q: "10. Neural Networks\nThe process of updating the weights and biases in a neural network to minimize the loss function is achieved using which primary optimization technique?",
+                options: ["Feature Scaling", "Gradient Descent", "K-Fold Cross-Validation", "Principal Component Analysis (PCA)"],
+                answer: "B"
+            },
+            {
+                q: "11. Support Vector Machines (SVM)\nWhat is the purpose of the Kernel Trick in Support Vector Machines?",
+                options: ["To simplify the calculation of the decision boundary in linear spaces.", "To implicitly map non-linearly separable data into a higher-dimensional feature space where it may become linearly separable.", "To reduce the number of features in the input data.", "To balance the dataset by oversampling the minority class."],
+                answer: "B"
+            },
+            {
+                q: "12. Dimensionality Reduction\nWhat is the primary goal of Principal Component Analysis (PCA)?",
+                options: ["To train a model using an unsupervised approach.", "To classify data points into predefined categories.", "To reduce the number of variables by finding new features (principal components) that capture the maximum variance in the data.", "To increase the complexity of a model to reduce bias."],
+                answer: "C"
+            },
+            {
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InternzLearn - Open Quiz</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f7f6; /* Very Light Gray/Off-White */
+            color: #333;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 900px;
+            margin: 30px auto;
+            padding: 30px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #3F51B5; /* Indigo */
+            margin-bottom: 30px;
+            border-bottom: 3px solid #FFC107;
+            padding-bottom: 10px;
+        }
+
+        /* Form Styling */
+        .data-form label {
+            display: block;
+            font-weight: bold;
+            margin-top: 15px;
+            color: #4CAF50; /* Green */
+        }
+
+        .data-form input[type="text"],
+        .data-form input[type="email"],
+        .data-form input[type="tel"],
+        .data-form select {
+            width: 100%;
+            padding: 12px;
+            margin-top: 5px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+            font-size: 1em;
+        }
+
+        /* Quiz Selection Button */
+        #start-quiz-btn {
+            background-color: #FFC107; /* Yellow/Amber */
+            color: #333;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1.1em;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 8px;
+            transition: background-color 0.3s;
+            display: block;
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        #start-quiz-btn:hover {
+            background-color: #FFA000;
+        }
+
+        /* Quiz Area Styling */
+        #quiz-area {
+            display: none; /* Hidden initially */
+            margin-top: 40px;
+            border-top: 2px solid #2196F3; /* Blue separator */
+            padding-top: 30px;
+        }
+
+        .question {
+            margin-bottom: 25px;
+            padding: 15px;
+            border-left: 5px solid #4CAF50; /* Green highlight */
+            background-color: #f9f9f9;
+            border-radius: 5px;
+        }
+
+        .question p {
+            font-weight: bold;
+            font-size: 1.1em;
+            color: #3F51B5; /* Indigo */
+            margin-top: 0;
+        }
+
+        .question label {
+            display: block;
+            margin: 10px 0;
+            cursor: pointer;
+            transition: background-color 0.2s;
+            padding: 8px;
+            border-radius: 4px;
+        }
+
+        .question label:hover {
+            background-color: #e3f2fd; /* Lightest Blue */
+        }
+
+        .question input[type="radio"] {
+            margin-right: 10px;
+        }
+
+        /* Submit Button */
+        .submit-btn {
+            background-color: #00796B; /* Dark Teal */
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1.2em;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 8px;
+            transition: background-color 0.3s;
+            display: block;
+            width: 100%;
+            margin-top: 40px;
+        }
+
+        .submit-btn:hover {
+            background-color: #004D40;
+        }
+        
+        .back-home {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            color: #2196F3;
+            text-decoration: none;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>🚀 Open Quiz Challenge 🧠</h1>
+    <a href="index.html" class="back-home">← Back to Home Page</a>
+
+    <form id="student-data-form" class="data-form">
+        <label for="name">Name</label>
+        <input type="text" id="name" required>
+
+        <label for="email">Email</label>
+        <input type="email" id="email" required>
+
+        <label for="phone">Phone Number</label>
+        <input type="tel" id="phone" required>
+
+        <label for="college">College</label>
+        <input type="text" id="college" required>
+
+        <label for="department">Department</label>
+        <input type="text" id="department" required>
+
+        <label for="year">Year</label>
+        <input type="text" id="year" required>
+
+        <label for="course-select">Choose a Course for Quiz</label>
+        <select id="course-select" required>
+            <option value="">-- Select a Course --</option>
+            <option value="Artificial Intelligence">ARTIFICIAL INTELLIGENCE</option>
+            <option value="Machine Learning">MACHINE LEARNING</option>
+            <option value="Data Science">DATA SCIENCE</option>
+            <option value="Web Development">WEB DEVELOPMENT</option>
+            <option value="Android Development">ANDROID DEVELOPMENT</option>
+            <option value="Cloud Computing- AWS">Cloud Computing- AWS</option>
+            <option value="Cyber Security">Cyber Security</option>
+            <option value="Java">Java</option>
+            <option value="Python">Python</option>
+            <option value="Embedded System">Embedded System</option>
+            <option value="Internet of Things">Internet of Things</option>
+            <option value="Hybrid Electric Vehicle">Hybrid Electric Vehicle</option>
+            <option value="Robotics">Robotics</option>
+            <option value="AutoCAD">AutoCAD</option>
+            <option value="Construction Planning">Construction Planning</option>
+            <option value="IC Engine Design">IC Engine Design</option>
+            <option value="Human Resources">Human Resources</option>
+            <option value="Finance">Finance</option>
+            <option value="Sales & Marketing">Sales & Marketing</option>
+            <option value="Digital Marketing">Digital Marketing</option>
+            <option value="Stock Market">Stock Market</option>
+            <option value="Industrial Biotechnology">Industrial Biotechnology</option>
+            <option value="Psychology">Psychology</option>
+            <option value="Medical Coding">Medical Coding</option>
+            <option value="VLSI">VLSI</option>
+        </select>
+        
+        <button type="button" id="start-quiz-btn">Start Quiz</button>
+    </form>
+    
+    <div id="quiz-area">
+        <h2 id="quiz-title" style="text-align: center; color: #F44336;">Quiz on Selected Course</h2>
+        <form id="quiz-form">
+            </form>
+        <button type="submit" class="submit-btn" form="quiz-form">Submit Quiz & Get Results</button>
+    </div>
+
+</div>
+
+<script>
+    // Define the quizzes data structure
+    const quizzes = {
+        "Artificial Intelligence": [
+            {
+                q: "1. Definition of Machine Learning\nWhich definition best describes Machine Learning (ML)?",
+                options: ["Programming computers to perform tasks by explicitly coding all rules and decision paths.", "The use of logic and reasoning to solve complex problems without data.", "The field of study that gives computers the ability to learn without being explicitly programmed.", "Applying statistical methods only to structured, numerical data."],
+                answer: "C"
+            },
+            {
+                q: "2. Learning Paradigms\nIn which type of learning is the model trained on data that includes input features along with the correct target output (labels)?",
+                options: ["Unsupervised Learning", "Supervised Learning", "Reinforcement Learning", "Semi-supervised Learning"],
+                answer: "B"
+            },
+            {
+                q: "3. Supervised Learning Tasks\nIf you use an ML model to predict a continuous numerical value (like house price or temperature), what kind of task are you performing?",
+                options: ["Classification", "Regression", "Clustering", "Dimensionality Reduction"],
+                answer: "B"
+            },
+            {
+                q: "4. Unsupervised Learning Tasks\nWhich algorithm is typically used for segmenting a customer base into distinct groups based on purchasing behavior?",
+                options: ["Linear Regression", "Support Vector Machine (SVM)", "K-Means Clustering", "Decision Tree"],
+                answer: "C"
+            },
+            {
+                q: "5. Overfitting\nWhich scenario indicates that a model is overfitting?",
+                options: ["High error on both the training data and the test data.", "Low error on the training data and high error on the test data.", "Low error on both the training data and the test data.", "High bias and low variance."],
+                answer: "B"
+            },
+            {
+                q: "6. Bias-Variance Trade-off\nA model with high bias is generally characterized by:",
+                options: ["Being too complex and capturing noise in the training data.", "Being too simple and consistently missing the relationship between features and output.", "Having low prediction error on unseen data.", "Using too much training data."],
+                answer: "B"
+            },
+            {
+                q: "7. Model Evaluation\nThe F1 Score is the harmonic mean of which two metrics?",
+                options: ["Accuracy and Recall", "Specificity and Sensitivity", "Precision and Recall", "True Positive Rate and False Positive Rate"],
+                answer: "C"
+            },
+            {
+                q: "8. Decision Trees\nIn a Decision Tree algorithm, what criterion is commonly used to select the best feature for splitting a node?",
+                options: ["Root Mean Squared Error (RMSE)", "Information Gain or Gini Impurity", "Log Loss", "Manhattan Distance"],
+                answer: "B"
+            },
+            {
+                q: "9. Ensemble Methods\nWhich ensemble technique involves training multiple individual models independently and then taking a simple majority vote (for classification) or an average (for regression) of their predictions?",
+                options: ["Boosting", "Stacking", "Bagging (Bootstrap Aggregating)", "Adaboost"],
+                answer: "C"
+            },
+            {
+                q: "10. Neural Networks\nThe process of updating the weights and biases in a neural network to minimize the loss function is achieved using which primary optimization technique?",
+                options: ["Feature Scaling", "Gradient Descent", "K-Fold Cross-Validation", "Principal Component Analysis (PCA)"],
+                answer: "B"
+            },
+            {
+                q: "11. Support Vector Machines (SVM)\nWhat is the purpose of the Kernel Trick in Support Vector Machines?",
+                options: ["To simplify the calculation of the decision boundary in linear spaces.", "To implicitly map non-linearly separable data into a higher-dimensional feature space where it may become linearly separable.", "To reduce the number of features in the input data.", "To balance the dataset by oversampling the minority class."],
+                answer: "B"
+            },
+            {
+                q: "12. Dimensionality Reduction\nWhat is the primary goal of Principal Component Analysis (PCA)?",
+                options: ["To train a model using an unsupervised approach.", "To classify data points into predefined categories.", "To reduce the number of variables by finding new features (principal components) that capture the maximum variance in the data.", "To increase the complexity of a model to reduce bias."],
+                answer: "C"
+            },
+            {
+                q: "13. Cross-Validation\nWhich validation technique involves dividing the dataset into K equal subsets, training the model K times, and testing on a different subset each time?",
+                options: ["Holdout Validation", "K-Fold Cross-Validation", "Leave-One-Out Cross-Validation", "Bootstrap Aggregating"],
+                answer: "B"
+            },
+            {
+                q: "14. Linear Regression\nIn a Simple Linear Regression model, Y = $\\beta_0$ + $\\beta_1$ X + $\\epsilon$, what does $\\beta_1$ represent?",
+                options: ["The predicted value of Y when X is zero (Y-intercept).", "The residual error term.", "The slope, representing the change in Y for a one-unit change in X.", "The constant feature bias."],
+                answer: "C"
+            },
+            {
+                q: "15. Regularization\nL1 and L2 are common types of Regularization used to prevent overfitting. Which type is known for driving some feature weights exactly to zero, effectively performing feature selection?",
+                options: ["L1 Regularization (Lasso)", "L2 Regularization (Ridge)", "Elastic Net", "Dropout"],
+                answer: "A"
+            },
+            {
+                q: "16. K-Nearest Neighbors (KNN)\nThe K-Nearest Neighbors (KNN) algorithm is a type of:",
+                options: ["Parametric Model", "Non-parametric Model", "Model-based Clustering", "Deep Learning Model"],
+                answer: "B"
+            },
+            {
+                q: "17. Deep Learning\nWhat is the defining characteristic that distinguishes Deep Learning from traditional Machine Learning?",
+                options: ["Deep Learning models are exclusively used for text data.", "Deep Learning models are always faster to train.", "The use of multiple layers (deep architectures) in neural networks.", "The requirement for labeled training data."],
+                answer: "C"
+            },
+            {
+                q: "18. Reinforcement Learning (RL)\nIn the context of Reinforcement Learning, the numerical score or feedback that an agent receives from the environment after performing an action is called the:",
+                options: ["State", "Policy", "Reward", "Action Space"],
+                answer: "C"
+            },
+            {
+                q: "19. Data Preparation\nWhat process involves handling missing values, standardizing or normalizing features, and transforming categorical variables into a numerical format?",
+                options: ["Model Training", "Model Deployment", "Data Preprocessing/Data Wrangling", "Hyperparameter Tuning"],
+                answer: "C"
+            },
+            {
+                q: "20. Learning Curve\nIn the context of model diagnostics, a learning curve plots the model's performance (error or accuracy) against:",
+                options: ["The number of features used.", "The value of the F1 Score.", "The size of the training dataset.", "The complexity of the model (e.g., degree of a polynomial)."],
+                answer: "C"
+            }
+        ],
+        "Machine Learning": [
+            // Reusing the AI quiz questions as a placeholder for Machine Learning as they are highly relevant
+            {
+                q: "1. Definition of Machine Learning\nWhich definition best describes Machine Learning (ML)?",
+                options: ["Programming computers to perform tasks by explicitly coding all rules and decision paths.", "The use of logic and reasoning to solve complex problems without data.", "The field of study that gives computers the ability to learn without being explicitly programmed.", "Applying statistical methods only to structured, numerical data."],
+                answer: "C"
+            },
+            {
+                q: "2. Learning Paradigms\nIn which type of learning is the model trained on data that includes input features along with the correct target output (labels)?",
+                options: ["Unsupervised Learning", "Supervised Learning", "Reinforcement Learning", "Semi-supervised Learning"],
+                answer: "B"
+            },
+            {
+                q: "3. Supervised Learning Tasks\nIf you use an ML model to predict a continuous numerical value (like house price or temperature), what kind of task are you performing?",
+                options: ["Classification", "Regression", "Clustering", "Dimensionality Reduction"],
+                answer: "B"
+            },
+            {
+                q: "4. Unsupervised Learning Tasks\nWhich algorithm is typically used for segmenting a customer base into distinct groups based on purchasing behavior?",
+                options: ["Linear Regression", "Support Vector Machine (SVM)", "K-Means Clustering", "Decision Tree"],
+                answer: "C"
+            },
+            {
+                q: "5. Overfitting\nWhich scenario indicates that a model is overfitting?",
+                options: ["High error on both the training data and the test data.", "Low error on the training data and high error on the test data.", "Low error on both the training data and the test data.", "High bias and low variance."],
+                answer: "B"
+            },
+            {
+                q: "6. Bias-Variance Trade-off\nA model with high bias is generally characterized by:",
+                options: ["Being too complex and capturing noise in the training data.", "Being too simple and consistently missing the relationship between features and output.", "Having low prediction error on unseen data.", "Using too much training data."],
+                answer: "B"
+            },
+            {
+                q: "7. Model Evaluation\nThe F1 Score is the harmonic mean of which two metrics?",
+                options: ["Accuracy and Recall", "Specificity and Sensitivity", "Precision and Recall", "True Positive Rate and False Positive Rate"],
+                answer: "C"
+            },
+            {
+                q: "8. Decision Trees\nIn a Decision Tree algorithm, what criterion is commonly used to select the best feature for splitting a node?",
+                options: ["Root Mean Squared Error (RMSE)", "Information Gain or Gini Impurity", "Log Loss", "Manhattan Distance"],
+                answer: "B"
+            },
+            {
+                q: "9. Ensemble Methods\nWhich ensemble technique involves training multiple individual models independently and then taking a simple majority vote (for classification) or an average (for regression) of their predictions?",
+                options: ["Boosting", "Stacking", "Bagging (Bootstrap Aggregating)", "Adaboost"],
+                answer: "C"
+            },
+            {
+                q: "10. Neural Networks\nThe process of updating the weights and biases in a neural network to minimize the loss function is achieved using which primary optimization technique?",
+                options: ["Feature Scaling", "Gradient Descent", "K-Fold Cross-Validation", "Principal Component Analysis (PCA)"],
+                answer: "B"
+            },
+            {
+                q: "11. Support Vector Machines (SVM)\nWhat is the purpose of the Kernel Trick in Support Vector Machines?",
+                options: ["To simplify the calculation of the decision boundary in linear spaces.", "To implicitly map non-linearly separable data into a higher-dimensional feature space where it may become linearly separable.", "To reduce the number of features in the input data.", "To balance the dataset by oversampling the minority class."],
+                answer: "B"
+            },
+            {
+                q: "12. Dimensionality Reduction\nWhat is the primary goal of Principal Component Analysis (PCA)?",
+                options: ["To train a model using an unsupervised approach.", "To classify data points into predefined categories.", "To reduce the number of variables by finding new features (principal components) that capture the maximum variance in the data.", "To increase the complexity of a model to reduce bias."],
+                answer: "C"
+            },
+            {
+                q: "13. Cross-Validation\nWhich validation technique involves dividing the dataset into K equal subsets, training the model K times, and testing on a different subset each time?",
+                options: ["Holdout Validation", "K-Fold Cross-Validation", "Leave-One-Out Cross-Validation", "Bootstrap Aggregating"],
+                answer: "B"
+            },
+            {
+                q: "14. Linear Regression\nIn a Simple Linear Regression model, Y = $\\beta_0$ + $\\beta_1$ X + $\\epsilon$, what does $\\beta_1$ represent?",
+                options: ["The predicted value of Y when X is zero (Y-intercept).", "The residual error term.", "The slope, representing the change in Y for a one-unit change in X.", "The constant feature bias."],
+                answer: "C"
+            },
+            {
+                q: "15. Regularization\nL1 and L2 are common types of Regularization used to prevent overfitting. Which type is known for driving some feature weights exactly to zero, effectively performing feature selection?",
+                options: ["L1 Regularization (Lasso)", "L2 Regularization (Ridge)", "Elastic Net", "Dropout"],
+                answer: "A"
+            },
+            {
+                q: "16. K-Nearest Neighbors (KNN)\nThe K-Nearest Neighbors (KNN) algorithm is a type of:",
+                options: ["Parametric Model", "Non-parametric Model", "Model-based Clustering", "Deep Learning Model"],
+                answer: "B"
+            },
+            {
+                q: "17. Deep Learning\nWhat is the defining characteristic that distinguishes Deep Learning from traditional Machine Learning?",
+                options: ["Deep Learning models are exclusively used for text data.", "Deep Learning models are always faster to train.", "The use of multiple layers (deep architectures) in neural networks.", "The requirement for labeled training data."],
+                answer: "C"
+            },
+            {
+                q: "18. Reinforcement Learning (RL)\nIn the context of Reinforcement Learning, the numerical score or feedback that an agent receives from the environment after performing an action is called the:",
+                options: ["State", "Policy", "Reward", "Action Space"],
+                answer: "C"
+            },
+            {
+                q: "19. Data Preparation\nWhat process involves handling missing values, standardizing or normalizing features, and transforming categorical variables into a numerical format?",
+                options: ["Model Training", "Model Deployment", "Data Preprocessing/Data Wrangling", "Hyperparameter Tuning"],
+                answer: "C"
+            },
+            {
+                q: "20. Learning Curve\nIn the context of model diagnostics, a learning curve plots the model's performance (error or accuracy) against:",
+                options: ["The number of features used.", "The value of the F1 Score.", "The size of the training dataset.", "The complexity of the model (e.g., degree of a polynomial)."],
+                answer: "C"
+            }
+        ],
+        "Data Science": [
+            {
+                q: "1. Definition of Data Science\nData Science is primarily defined as an interdisciplinary field that uses which three core elements to extract knowledge and insights from data?",
+                options: ["Computer Engineering, Logic Programming, and Art.", "Scientific Methods, Processes, and Systems to extract knowledge from data in various forms.", "Accounting, Business Management, and Law.", "Software Development, Hardware Optimization, and Networking."],
+                answer: "B"
+            },
+            {
+                q: "2. The Data Science Process\nIn the CRISP-DM (Cross-Industry Standard Process for Data Mining) methodology, which step immediately follows Data Understanding?",
+                options: ["Deployment", "Evaluation", "Data Preparation", "Business Understanding"],
+                answer: "C"
+            },
+            {
+                q: "3. Data Types\nWhich type of data is characterized by being countable and often restricted to integer values (e.g., number of cars, number of students)?",
+                options: ["Continuous Data", "Nominal Data", "Discrete Data", "Ordinal Data"],
+                answer: "C"
+            },
+            {
+                q: "4. Sampling Technique\nWhich sampling technique ensures that all subsets of a given size have an equal chance of being selected, which is often used to divide data into training and testing sets?",
+                options: ["Systematic Sampling", "Convenience Sampling", "Stratified Sampling", "Simple Random Sampling"],
+                answer: "D"
+            },
+            {
+                q: "5. Central Tendency\nWhich measure of central tendency is most appropriate for a highly skewed dataset, as it is least affected by outliers?",
+                options: ["Mean (Average)", "Standard Deviation", "Median", "Mode"],
+                answer: "C"
+            },
+            {
+                q: "6. Variance and Standard Deviation\nWhat does a high Standard Deviation value indicate about a dataset?",
+                options: ["The data points are closely clustered around the mean.", "The data points are spread out over a wide range of values.", "The mean and median are nearly identical.", "The dataset contains no outliers."],
+                answer: "B"
+            },
+            {
+                q: "7. Data Cleaning/Wrangling\nWhich of the following techniques is commonly used to handle missing values in a numerical dataset?",
+                options: ["One-Hot Encoding", "Imputation (e.g., filling with the mean or median)", "Feature Scaling", "Dimensionality Reduction"],
+                answer: "B"
+            },
+            {
+                q: "8. Feature Engineering\nWhat is the process of transforming raw data into features that better represent the underlying problem to a predictive model?",
+                options: ["Data Visualization", "Model Deployment", "Feature Engineering", "Data Imputation"],
+                answer: "C"
+            },
+            {
+                q: "9. Normalization vs. Standardization\nWhich data scaling technique transforms features to have a mean of 0 and a standard deviation of 1?",
+                options: ["Normalization (Min-Max Scaling)", "Standardization (Z-Score Scaling)", "Log Transformation", "Binning"],
+                answer: "B"
+            }
+            // ... (rest of the Data Science quiz content)
+        ],
+        "Web Development": [
+            {
+                q: "1. Fundamental Markup Language\nWhich language is primarily responsible for structuring the content of a web page?",
+                options: ["JavaScript", "CSS", "HTML", "PHP"],
+                answer: "C"
+            },
+            {
+                q: "2. Styling a Web Page\nWhich language is used to control the visual appearance, layout, and presentation of a web page?",
+                options: ["HTML", "CSS", "SQL", "Python"],
+                answer: "B"
+            },
+            {
+                q: "3. Dynamic Behavior\nWhich client-side scripting language is essential for adding interactivity and dynamic behavior to a web page?",
+                options: ["JavaScript", "Java", "C#", "Ruby"],
+                answer: "A"
+            },
+            {
+                q: "4. Box Model\nIn the CSS Box Model, which component is the outermost layer and represents the space outside the element's border?",
+                options: ["Padding", "Content", "Border", "Margin"],
+                answer: "D"
+            },
+            {
+                q: "5. CSS Selectors\nWhich CSS selector targets an element based on its unique identifier?",
+                options: ["Class selector (.example)", "Tag selector (p)", "ID selector (#example)", "Attribute selector ([type=\"text\"])"],
+                answer: "C"
+            },
+            {
+                q: "6. HTML Semantic Tags\nWhich HTML5 tag should be used to define a group of navigation links?",
+                options: ["<section>", "<main>", "<nav>", "<footer>"],
+                answer: "C"
+            },
+            {
+                q: "7. Server-Side Scripting\nWhich of the following is an example of a server-side programming language commonly used for web development?",
+                options: ["JavaScript (client-side)", "CSS", "Python (using Django/Flask)", "HTML"],
+                answer: "C"
+            },
+            {
+                q: "8. HTTP Methods\nWhich HTTP method is typically used to retrieve data from a specified resource on the server?",
+                options: ["POST", "PUT", "GET", "DELETE"],
+                answer: "C"
+            },
+            {
+                q: "9. Web Accessibility\nWhat is the purpose of the alt attribute on the HTML <img> tag?",
+                options: ["To define the alignment of the image.", "To provide a source URL for the image.", "To provide descriptive alternative text for screen readers and when the image fails to load.", "To set the image width and height."],
+                answer: "C"
+            },
+            {
+                q: "10. Responsive Design\nWhat CSS feature is most commonly used to apply different styles based on the size of the user's viewport (e.g., screen width)?",
+                options: ["Transitions", "Media Queries", "Flexbox", "CSS Grid"],
+                answer: "B"
+            },
+            {
+                q: "11. JavaScript Scope\nWhat keyword is used in JavaScript to declare a variable that is block-scoped and cannot be redeclared?",
+                options: ["var", "let or const", "function", "global"],
+                answer: "B"
+            },
+            {
+                q: "12. API Communication\nWhat widely-used format is often used for transmitting data between a client (browser) and a server via an API because of its lightweight and human-readable nature?",
+                options: ["XML", "YAML", "JSON", "SOAP"],
+                answer: "C"
+            },
+            {
+                q: "13. DOM Manipulation\nWhat does the acronym DOM stand for in the context of web development?",
+                options: ["Dynamic Object Manager", "Data Ordering Model", "Document Object Model", "Digital Output Module"],
+                answer: "C"
+            },
+            {
+                q: "14. Frontend Frameworks\nWhich of the following is a popular JavaScript library/framework primarily used for building single-page application (SPA) user interfaces?",
+                options: ["Node.js", "Django", "React or Vue.js", "Apache"],
+                answer: "C"
+            },
+            {
+                q: "15. Form Submission\nWhat attribute of the HTML <form> tag specifies the URL to which the form data will be submitted?",
+                options: ["method", "type", "enctype", "action"],
+                answer: "D"
+            },
+            {
+                q: "16. Web Security (Client-Side)\nWhat is the term for a security vulnerability where malicious scripts are injected into trusted websites and executed by the user's browser?",
+                options: ["Cross-Site Request Forgery (CSRF)", "SQL Injection", "Cross-Site Scripting (XSS)", "Denial of Service (DoS)"],
+                answer: "C"
+            },
+            {
+                q: "17. CSS Positioning\nWhich CSS position value takes the element out of the normal document flow but remains fixed relative to the viewport, staying in the same place even when the user scrolls?",
+                options: ["relative", "absolute", "static", "fixed"],
+                answer: "D"
+            },
+            {
+                q: "18. JavaScript Asynchronous Operations\nIn JavaScript, what mechanism is commonly used to handle the eventual completion (or failure) of an asynchronous operation, like an API call?",
+                options: ["for loop", "Promises (.then(), .catch())", "Synchronous Callbacks", "Event Listeners"],
+                answer: "B"
+            },
+            {
+                q: "19. Web Hosting\nWhat is a CDN (Content Delivery Network) primarily used for in web development?",
+                options: ["To create database backups.", "To manage server-side logic.", "To deliver static content (images, videos, scripts) to users quickly by distributing files across multiple servers geographically.", "To encrypt data transmitted over HTTPS."],
+                answer: "C"
+            },
+            {
+                q: "20. Version Control\nWhat is the most widely used version control system for tracking changes in source code during web development?",
+                options: ["FTP", "Git", "SVN", "Docker"],
+                answer: "B"
+            }
+        ],
+        "Android Development": [
+            {
+                q: "1. Primary Language\nWhat is the primary programming language officially recommended by Google for modern Android application development?",
+                options: ["Java", "C++", "Kotlin", "Python"],
+                answer: "C"
+            },
+            {
+                q: "2. Core Building Block\nWhich of the following is the fundamental building block of an Android user interface, representing a single screen with which the user can interact?",
+                options: ["Service", "Broadcast Receiver", "Content Provider", "Activity"],
+                answer: "D"
+            },
+            {
+                q: "3. Layout File Format\nWhat file format is used to define the layout (UI structure) of an Activity in Android?",
+                options: ["JSON", "XML", "HTML", "Manifest"],
+                answer: "B"
+            },
+            {
+                q: "4. Application Configuration\nWhich mandatory file contains essential information about the application (its components, permissions, hardware features, etc.) that the Android system needs to run the code?",
+                options: ["strings.xml", "build.gradle", "AndroidManifest.xml", "MainActivity.java"],
+                answer: "C"
+            },
+            {
+                q: "5. UI Element\nWhich ViewGroup is designed to arrange its child views in a single row or column?",
+                options: ["ConstraintLayout", "RelativeLayout", "GridLayout", "LinearLayout"],
+                answer: "D"
+            },
+            {
+                q: "6. Managing Activity States\nWhich lifecycle method is called when an Activity is no longer visible to the user, but its instance is still kept in memory?",
+                options: ["onCreate()", "onStart()", "onStop()", "onDestroy()"],
+                answer: "C"
+            },
+            {
+                q: "7. Explicit Navigation\nWhat is the primary object used to request an action from another app component, such as launching a new Activity?",
+                options: ["Context", "Bundle", "Intent", "Handler"],
+                answer: "C"
+            },
+            {
+                q: "8. Background Operations\nWhich component is best suited for performing long-running operations in the background without a user interface (e.g., fetching data over the network)?",
+                options: ["Activity", "Broadcast Receiver", "Service", "Content Provider"],
+                answer: "C"
+            },
+            {
+                q: "9. Resource Files\nWhere are image files, application icons, and custom XML drawables stored in an Android project?",
+                options: ["layout/", "values/", "drawable/", "assets/"],
+                answer: "C"
+            },
+            {
+                q: "10. External Libraries\nWhat is the name of the build system used by Android Studio that manages dependencies (external libraries) and allows for flexible project configuration?",
+                options: ["Maven", "Ant", "Gradle", "NDK"],
+                answer: "C"
+            },
+            {
+                q: "11. Data Passing\nWhat is the term for the key-value map used to pass data between Activities using an Intent?",
+                options: ["SharedPreferences", "Adapter", "Bundle", "ViewModel"],
+                answer: "C"
+            },
+            {
+                q: "12. List Views\nWhich view component is used to display a scrollable list of items, where the view for each item is created and reused efficiently?",
+                options: ["ListView (deprecated)", "ScrollView", "LinearLayout", "RecyclerView"],
+                answer: "D"
+            },
+            {
+                q: "13. UI Thread\nIn Android development, what is the name of the single thread responsible for handling all user interface events and updates?",
+                options: ["Background Thread", "Worker Thread", "Main Thread (or UI Thread)", "Executor Thread"],
+                answer: "C"
+            },
+            {
+                q: "14. Data Persistence (Small Data)\nWhich mechanism is best used for persistently storing a small collection of key-value pairs (like user settings or preferences)?",
+                options: ["SQLite Database", "Content Provider", "Internal Storage (Files)", "SharedPreferences"],
+                answer: "D"
+            },
+            {
+                q: "15. View Binding\nWhat modern feature replaces the need to manually call findViewById() to reference UI elements in code?",
+                options: ["Data Binding", "View Binding", "Butter Knife (deprecated)", "Resource Mapping"],
+                answer: "B"
+            },
+            {
+                q: "16. App Permissions\nWhere must an application declare its need to access sensitive information or capabilities (like the camera or GPS location)?",
+                options: ["In the build.gradle file.", "In the AndroidManifest.xml file.", "In the main Activity's onCreate() method.", "In the strings.xml file."],
+                answer: "B"
+            },
+            {
+                q: "17. Architecture Components\nWhich component from the Android Architecture Components is used to store and manage UI-related data in a lifecycle-conscious way, surviving configuration changes like screen rotations?",
+                options: ["LiveData", "Room Database", "ViewModel", "CoroutineScope"],
+                answer: "C"
+            },
+            {
+                q: "18. XML Attributes\nWhat XML attribute is used to reference a resource (like a string or a color) defined in the values/ directory?",
+                options: ["android:id", "android:layout_width", "@string/app_name (or similar @ syntax)", "android:textStyle"],
+                answer: "C"
+            },
+            {
+                q: "19. Fragments\nWhat is a Fragment in Android development?",
+                options: ["A process that runs in the background indefinitely.", "A temporary data structure used for Intent communication.", "A modular section of an Activity's user interface, with its own lifecycle.", "The smallest unit of work in a Service."],
+                answer: "C"
+            },
+            {
+                q: "20. App Signing\nWhat is the purpose of signing an Android application with a digital certificate (keystore)?",
+                options: ["To encrypt all data sent over the network.", "To uniquely identify the developer and ensure that updates come from the original creator.", "To verify that the app is compatible with all devices.", "To reduce the overall size of the APK file."],
+                answer: "B"
+            }
+        ],
+        "Cloud Computing- AWS": [
+            {
+                q: "1. Fundamental Definition\nWhat is the most accurate definition of Cloud Computing?",
+                options: ["Storing data locally on a large server farm.", "The on-demand delivery of compute power, database storage, applications, and other IT resources via the internet with pay-as-you-go pricing.", "Using virtualization technology to run multiple operating systems on one machine.", "Using a Content Delivery Network (CDN) to serve static files."],
+                answer: "B"
+            },
+            {
+                q: "2. Service Models\nWhich cloud service model provides consumers with complete access to and control over operating systems, applications, and middleware, while the provider manages the underlying hardware and infrastructure?",
+                options: ["Software as a Service (SaaS)", "Platform as a Service (PaaS)", "Infrastructure as a Service (IaaS)", "Function as a Service (FaaS)"],
+                answer: "C"
+            },
+            {
+                q: "3. Service Models (IaaS)\nIn the Infrastructure as a Service (IaaS) model, which of the following is the customer's primary responsibility?",
+                options: ["Managing the application code and deployment only.", "Managing the operating system, applications, and runtime environment.", "Managing only the network and storage hardware.", "The provider manages everything."],
+                answer: "B"
+            },
+            {
+                q: "4. Deployment Models\nA cloud deployment model where the cloud infrastructure is exclusively operated for a single organization, managed either internally or by a third party, is known as a:",
+                options: ["Public Cloud", "Private Cloud", "Hybrid Cloud", "Community Cloud"],
+                answer: "B"
+            },
+            {
+                q: "5. Deployment Models\nWhich model combines two or more distinct cloud infrastructures (private, public, or community) that remain unique entities but are bound together by standardized technology?",
+                options: ["Private Cloud", "Hybrid Cloud", "Public Cloud", "Distributed Cloud"],
+                answer: "B"
+            },
+            {
+                q: "6. Scalability\nWhat term describes the ability of a cloud system to automatically increase or decrease resources (e.g., servers or storage) based on current demand?",
+                options: ["Resilience", "Latency", "Elasticity/Scalability", "Redundancy"],
+                answer: "C"
+            },
+            {
+                q: "7. Virtualization\nWhat foundational technology enables cloud providers to host multiple isolated operating system instances on a single physical server?",
+                options: ["Load Balancing", "Containerization", "Virtualization", "Serverless Computing"],
+                answer: "C"
+            },
+            {
+                q: "8. Cost Management\nThe \"pay-as-you-go\" pricing model in cloud computing is also known as a(n):",
+                options: ["Fixed Capital Expenditure (CapEx)", "Variable Operational Expenditure (OpEx)", "Subscription Model", "Managed Service Fee"],
+                answer: "B"
+            },
+            {
+                q: "9. Serverless Computing\nIn the context of Serverless computing (or Function as a Service - FaaS), which statement is true?",
+                options: ["The developer must provision and manage the underlying virtual servers.", "The developer writes and uploads code, and the cloud provider automatically provisions and scales the required computing resources.", "It is only used for static website hosting.", "It guarantees zero costs, regardless of usage"],
+                answer: "B"
+            }
+            // ... (rest of the Cloud Computing quiz content)
+        ]
+        // You would add quizzes for all other 24 courses here
+    };
+
+    const startQuizButton = document.getElementById('start-quiz-btn');
+    const courseSelect = document.getElementById('course-select');
+    const quizArea = document.getElementById('quiz-area');
+    const quizTitle = document.getElementById('quiz-title');
+    const quizForm = document.getElementById('quiz-form');
+    
+    // Convert option letters to an array for easy mapping
+    const optionLetters = ['A', 'B', 'C', 'D'];
+
+    function renderQuiz(courseName) {
+        const quiz = quizzes[courseName];
+        if (!quiz) {
+            alert(`Quiz for ${courseName} is not yet available.`);
+            return;
+        }
+
+        quizTitle.textContent = `Quiz on: ${courseName}`;
+        quizForm.innerHTML = ''; // Clear previous questions
+
+        quiz.forEach((qItem, index) => {
+            const questionElement = document.createElement('div');
+            questionElement.classList.add('question');
+            
+            let questionHtml = `<p>${qItem.q.replace(/\n/g, '<br>')}</p>`;
+            
+            qItem.options.forEach((option, optionIndex) => {
+                const optionLetter = optionLetters[optionIndex];
+                // Using 'name' attribute to group radio buttons
+                const radioName = `q${index + 1}`; 
+                
+                questionHtml += `
+                    <label>
+                        <input type="radio" name="${radioName}" value="${optionLetter}" required>
+                        <span style="font-weight: bold;">${optionLetter}.</span> ${option}
+                    </label>
+                `;
+            });
+
+            questionElement.innerHTML = questionHtml;
+            quizForm.appendChild(questionElement);
+        });
+
+        quizArea.style.display = 'block';
+        quizArea.scrollIntoView({ behavior: 'smooth' }); // Scroll to the quiz
+    }
+
+    startQuizButton.addEventListener('click', function() {
+        // Simple form validation (checks if fields are not empty and a course is selected)
+        const form = document.getElementById('student-data-form');
+        const requiredFields = form.querySelectorAll('[required]');
+        let isValid = true;
+        
+        requiredFields.forEach(field => {
+            if (!field.value) {
+                isValid = false;
+                field.style.border = '2px solid red';
+            } else {
+                 field.style.border = '1px solid #ccc';
+            }
+        });
+
+        if (isValid) {
+            const selectedCourse = courseSelect.value;
+            renderQuiz(selectedCourse);
+            // Hide the data form once the quiz starts
+            form.style.display = 'none';
+        } else {
+            alert('Please fill out all the required details before starting the quiz.');
+        }
+    });
+
+    quizForm.addEventListener('submit', function(event) {
+        event.preventDefault();
+        alert("Quiz Submitted! Thank you for participating. Your results will be processed soon.");
+        // In a real application, you would collect the student data (from form values) and quiz answers (from form values) here
+        // and send them to a server (e.g., using fetch() or XMLHttpRequest).
+    });
+</script>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InternzLearn - Open Quiz</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f7f6; /* Very Light Gray/Off-White */
+            color: #333;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 900px;
+            margin: 30px auto;
+            padding: 30px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #3F51B5; /* Indigo */
+            margin-bottom: 30px;
+            border-bottom: 3px solid #FFC107;
+            padding-bottom: 10px;
+        }
+
+        /* Form Styling */
+        .data-form label {
+            display: block;
+            font-weight: bold;
+            margin-top: 15px;
+            color: #4CAF50; /* Green */
+        }
+
+        .data-form input[type="text"],
+        .data-form input[type="email"],
+        .data-form input[type="tel"],
+        .data-form select {
+            width: 100%;
+            padding: 12px;
+            margin-top: 5px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+            font-size: 1em;
+        }
+
+        /* Quiz Selection Button */
+        #start-quiz-btn {
+            background-color: #FFC107; /* Yellow/Amber */
+            color: #333;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1.1em;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 8px;
+            transition: background-color 0.3s;
+            display: block;
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        #start-quiz-btn:hover {
+            background-color: #FFA000;
+        }
+
+        /* Quiz Area Styling */
+        #quiz-area {
+            display: none; /* Hidden initially */
+            margin-top: 40px;
+            border-top: 2px solid #2196F3; /* Blue separator */
+            padding-top: 30px;
+        }
+
+        .question {
+            margin-bottom: 25px;
+            padding: 15px;
+            border-left: 5px solid #4CAF50; /* Green highlight */
+            background-color: #f9f9f9;
+            border-radius: 5px;
+        }
+
+        .question p {
+            font-weight: bold;
+            font-size: 1.1em;
+            color: #3F51B5; /* Indigo */
+            margin-top: 0;
+        }
+
+        .question label {
+            display: block;
+            margin: 10px 0;
+            cursor: pointer;
+            transition: background-color 0.2s;
+            padding: 8px;
+            border-radius: 4px;
+        }
+
+        .question label:hover {
+            background-color: #e3f2fd; /* Lightest Blue */
+        }
+
+        .question input[type="radio"] {
+            margin-right: 10px;
+        }
+
+        /* Submit Button */
+        .submit-btn {
+            background-color: #00796B; /* Dark Teal */
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1.2em;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 8px;
+            transition: background-color 0.3s;
+            display: block;
+            width: 100%;
+            margin-top: 40px;
+        }
+
+        .submit-btn:hover {
+            background-color: #004D40;
+        }
+        
+        .back-home {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            color: #2196F3;
+            text-decoration: none;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>🚀 Open Quiz Challenge 🧠</h1>
+    <a href="index.html" class="back-home">← Back to Home Page</a>
+
+    <form id="student-data-form" class="data-form">
+        <label for="name">Name</label>
+        <input type="text" id="name" required>
+
+        <label for="email">Email</label>
+        <input type="email" id="email" required>
+
+        <label for="phone">Phone Number</label>
+        <input type="tel" id="phone" required>
+
+        <label for="college">College</label>
+        <input type="text" id="college" required>
+
+        <label for="department">Department</label>
+        <input type="text" id="department" required>
+
+        <label for="year">Year</label>
+        <input type="text" id="year" required>
+
+        <label for="course-select">Choose a Course for Quiz</label>
+        <select id="course-select" required>
+            <option value="">-- Select a Course --</option>
+            <option value="Artificial Intelligence">ARTIFICIAL INTELLIGENCE</option>
+            <option value="Machine Learning">MACHINE LEARNING</option>
+            <option value="Data Science">DATA SCIENCE</option>
+            <option value="Web Development">WEB DEVELOPMENT</option>
+            <option value="Android Development">ANDROID DEVELOPMENT</option>
+            <option value="Cloud Computing- AWS">Cloud Computing- AWS</option>
+            <option value="Cyber Security">Cyber Security</option>
+            <option value="Java">Java</option>
+            <option value="Python">Python</option>
+            <option value="Embedded System">Embedded System</option>
+            <option value="Internet of Things">Internet of Things</option>
+            <option value="Hybrid Electric Vehicle">Hybrid Electric Vehicle</option>
+            <option value="Robotics">Robotics</option>
+            <option value="AutoCAD">AutoCAD</option>
+            <option value="Construction Planning">Construction Planning</option>
+            <option value="IC Engine Design">IC Engine Design</option>
+            <option value="Human Resources">Human Resources</option>
+            <option value="Finance">Finance</option>
+            <option value="Sales & Marketing">Sales & Marketing</option>
+            <option value="Digital Marketing">Digital Marketing</option>
+            <option value="Stock Market">Stock Market</option>
+            <option value="Industrial Biotechnology">Industrial Biotechnology</option>
+            <option value="Psychology">Psychology</option>
+            <option value="Medical Coding">Medical Coding</option>
+            <option value="VLSI">VLSI</option>
+        </select>
+        
+        <button type="button" id="start-quiz-btn">Start Quiz</button>
+    </form>
+    
+    <div id="quiz-area">
+        <h2 id="quiz-title" style="text-align: center; color: #F44336;">Quiz on Selected Course</h2>
+        <form id="quiz-form">
+            </form>
+        <button type="submit" class="submit-btn" form="quiz-form">Submit Quiz & Get Results</button>
+    </div>
+
+</div>
+
+<script>
+    // Define the quizzes data structure
+    const quizzes = {
+        "Artificial Intelligence": [
+            {
+                q: "1. Definition of Machine Learning\nWhich definition best describes Machine Learning (ML)?",
+                options: ["Programming computers to perform tasks by explicitly coding all rules and decision paths.", "The use of logic and reasoning to solve complex problems without data.", "The field of study that gives computers the ability to learn without being explicitly programmed.", "Applying statistical methods only to structured, numerical data."],
+                answer: "C"
+            },
+            {
+                q: "2. Learning Paradigms\nIn which type of learning is the model trained on data that includes input features along with the correct target output (labels)?",
+                options: ["Unsupervised Learning", "Supervised Learning", "Reinforcement Learning", "Semi-supervised Learning"],
+                answer: "B"
+            },
+            {
+                q: "3. Supervised Learning Tasks\nIf you use an ML model to predict a continuous numerical value (like house price or temperature), what kind of task are you performing?",
+                options: ["Classification", "Regression", "Clustering", "Dimensionality Reduction"],
+                answer: "B"
+            },
+            {
+                q: "4. Unsupervised Learning Tasks\nWhich algorithm is typically used for segmenting a customer base into distinct groups based on purchasing behavior?",
+                options: ["Linear Regression", "Support Vector Machine (SVM)", "K-Means Clustering", "Decision Tree"],
+                answer: "C"
+            },
+            {
+                q: "5. Overfitting\nWhich scenario indicates that a model is overfitting?",
+                options: ["High error on both the training data and the test data.", "Low error on the training data and high error on the test data.", "Low error on both the training data and the test data.", "High bias and low variance."],
+                answer: "B"
+            },
+            {
+                q: "6. Bias-Variance Trade-off\nA model with high bias is generally characterized by:",
+                options: ["Being too complex and capturing noise in the training data.", "Being too simple and consistently missing the relationship between features and output.", "Having low prediction error on unseen data.", "Using too much training data."],
+                answer: "B"
+            },
+            {
+                q: "7. Model Evaluation\nThe F1 Score is the harmonic mean of which two metrics?",
+                options: ["Accuracy and Recall", "Specificity and Sensitivity", "Precision and Recall", "True Positive Rate and False Positive Rate"],
+                answer: "C"
+            },
+            {
+                q: "8. Decision Trees\nIn a Decision Tree algorithm, what criterion is commonly used to select the best feature for splitting a node?",
+                options: ["Root Mean Squared Error (RMSE)", "Information Gain or Gini Impurity", "Log Loss", "Manhattan Distance"],
+                answer: "B"
+            },
+            {
+                q: "9. Ensemble Methods\nWhich ensemble technique involves training multiple individual models independently and then taking a simple majority vote (for classification) or an average (for regression) of their predictions?",
+                options: ["Boosting", "Stacking", "Bagging (Bootstrap Aggregating)", "Adaboost"],
+                answer: "C"
+            },
+            {
+                q: "10. Neural Networks\nThe process of updating the weights and biases in a neural network to minimize the loss function is achieved using which primary optimization technique?",
+                options: ["Feature Scaling", "Gradient Descent", "K-Fold Cross-Validation", "Principal Component Analysis (PCA)"],
+                answer: "B"
+            },
+            {
+                q: "11. Support Vector Machines (SVM)\nWhat is the purpose of the Kernel Trick in Support Vector Machines?",
+                options: ["To simplify the calculation of the decision boundary in linear spaces.", "To implicitly map non-linearly separable data into a higher-dimensional feature space where it may become linearly separable.", "To reduce the number of features in the input data.", "To balance the dataset by oversampling the minority class."],
+                answer: "B"
+            },
+            {
+                q: "12. Dimensionality Reduction\nWhat is the primary goal of Principal Component Analysis (PCA)?",
+                options: ["To train a model using an unsupervised approach.", "To classify data points into predefined categories.", "To reduce the number of variables by finding new features (principal components) that capture the maximum variance in the data.", "To increase the complexity of a model to reduce bias."],
+                answer: "C"
+            },
+            {
+                q: "13. Cross-Validation\nWhich validation technique involves dividing the dataset into K equal subsets, training the model K times, and testing on a different subset each time?",
+                options: ["Holdout Validation", "K-Fold Cross-Validation", "Leave-One-Out Cross-Validation", "Bootstrap Aggregating"],
+                answer: "B"
+            },
+            {
+                q: "14. Linear Regression\nIn a Simple Linear Regression model, Y = $\\beta_0$ + $\\beta_1$ X + $\\epsilon$, what does $\\beta_1$ represent?",
+                options: ["The predicted value of Y when X is zero (Y-intercept).", "The residual error term.", "The slope, representing the change in Y for a one-unit change in X.", "The constant feature bias."],
+                answer: "C"
+            },
+            {
+                q: "15. Regularization\nL1 and L2 are common types of Regularization used to prevent overfitting. Which type is known for driving some feature weights exactly to zero, effectively performing feature selection?",
+                options: ["L1 Regularization (Lasso)", "L2 Regularization (Ridge)", "Elastic Net", "Dropout"],
+                answer: "A"
+            },
+            {
+                q: "16. K-Nearest Neighbors (KNN)\nThe K-Nearest Neighbors (KNN) algorithm is a type of:",
+                options: ["Parametric Model", "Non-parametric Model", "Model-based Clustering", "Deep Learning Model"],
+                answer: "B"
+            },
+            {
+                q: "17. Deep Learning\nWhat is the defining characteristic that distinguishes Deep Learning from traditional Machine Learning?",
+                options: ["Deep Learning models are exclusively used for text data.", "Deep Learning models are always faster to train.", "The use of multiple layers (deep architectures) in neural networks.", "The requirement for labeled training data."],
+                answer: "C"
+            },
+            {
+                q: "18. Reinforcement Learning (RL)\nIn the context of Reinforcement Learning, the numerical score or feedback that an agent receives from the environment after performing an action is called the:",
+                options: ["State", "Policy", "Reward", "Action Space"],
+                answer: "C"
+            },
+            {
+                q: "19. Data Preparation\nWhat process involves handling missing values, standardizing or normalizing features, and transforming categorical variables into a numerical format?",
+                options: ["Model Training", "Model Deployment", "Data Preprocessing/Data Wrangling", "Hyperparameter Tuning"],
+                answer: "C"
+            },
+            {
+                q: "20. Learning Curve\nIn the context of model diagnostics, a learning curve plots the model's performance (error or accuracy) against:",
+                options: ["The number of features used.", "The value of the F1 Score.", "The size of the training dataset.", "The complexity of the model (e.g., degree of a polynomial)."],
+                answer: "C"
+            }
+        ],
+        "Machine Learning": [
+            {
+                q: "1. Definition of Machine Learning\nWhich definition best describes Machine Learning (ML)?",
+                options: ["Programming computers to perform tasks by explicitly coding all rules and decision paths.", "The use of logic and reasoning to solve complex problems without data.", "The field of study that gives computers the ability to learn without being explicitly programmed.", "Applying statistical methods only to structured, numerical data."],
+                answer: "C"
+            },
+            {
+                q: "2. Learning Paradigms\nIn which type of learning is the model trained on data that includes input features along with the correct target output (labels)?",
+                options: ["Unsupervised Learning", "Supervised Learning", "Reinforcement Learning", "Semi-supervised Learning"],
+                answer: "B"
+            },
+            {
+                q: "3. Supervised Learning Tasks\nIf you use an ML model to predict a continuous numerical value (like house price or temperature), what kind of task are you performing?",
+                options: ["Classification", "Regression", "Clustering", "Dimensionality Reduction"],
+                answer: "B"
+            },
+            {
+                q: "4. Unsupervised Learning Tasks\nWhich algorithm is typically used for segmenting a customer base into distinct groups based on purchasing behavior?",
+                options: ["Linear Regression", "Support Vector Machine (SVM)", "K-Means Clustering", "Decision Tree"],
+                answer: "C"
+            },
+            {
+                q: "5. Overfitting\nWhich scenario indicates that a model is overfitting?",
+                options: ["High error on both the training data and the test data.", "Low error on the training data and high error on the test data.", "Low error on both the training data and the test data.", "High bias and low variance."],
+                answer: "B"
+            },
+            {
+                q: "6. Bias-Variance Trade-off\nA model with high bias is generally characterized by:",
+                options: ["Being too complex and capturing noise in the training data.", "Being too simple and consistently missing the relationship between features and output.", "Having low prediction error on unseen data.", "Using too much training data."],
+                answer: "B"
+            },
+            {
+                q: "7. Model Evaluation\nThe F1 Score is the harmonic mean of which two metrics?",
+                options: ["Accuracy and Recall", "Specificity and Sensitivity", "Precision and Recall", "True Positive Rate and False Positive Rate"],
+                answer: "C"
+            },
+            {
+                q: "8. Decision Trees\nIn a Decision Tree algorithm, what criterion is commonly used to select the best feature for splitting a node?",
+                options: ["Root Mean Squared Error (RMSE)", "Information Gain or Gini Impurity", "Log Loss", "Manhattan Distance"],
+                answer: "B"
+            },
+            {
+                q: "9. Ensemble Methods\nWhich ensemble technique involves training multiple individual models independently and then taking a simple majority vote (for classification) or an average (for regression) of their predictions?",
+                options: ["Boosting", "Stacking", "Bagging (Bootstrap Aggregating)", "Adaboost"],
+                answer: "C"
+            },
+            {
+                q: "10. Neural Networks\nThe process of updating the weights and biases in a neural network to minimize the loss function is achieved using which primary optimization technique?",
+                options: ["Feature Scaling", "Gradient Descent", "K-Fold Cross-Validation", "Principal Component Analysis (PCA)"],
+                answer: "B"
+            },
+            {
+                q: "11. Support Vector Machines (SVM)\nWhat is the purpose of the Kernel Trick in Support Vector Machines?",
+                options: ["To simplify the calculation of the decision boundary in linear spaces.", "To implicitly map non-linearly separable data into a higher-dimensional feature space where it may become linearly separable.", "To reduce the number of features in the input data.", "To balance the dataset by oversampling the minority class."],
+                answer: "B"
+            },
+            {
+                q: "12. Dimensionality Reduction\nWhat is the primary goal of Principal Component Analysis (PCA)?",
+                options: ["To train a model using an unsupervised approach.", "To classify data points into predefined categories.", "To reduce the number of variables by finding new features (principal components) that capture the maximum variance in the data.", "To increase the complexity of a model to reduce bias."],
+                answer: "C"
+            },
+            {
+                q: "13. Cross-Validation\nWhich validation technique involves dividing the dataset into K equal subsets, training the model K times, and testing on a different subset each time?",
+                options: ["Holdout Validation", "K-Fold Cross-Validation", "Leave-One-Out Cross-Validation", "Bootstrap Aggregating"],
+                answer: "B"
+            },
+            {
+                q: "14. Linear Regression\nIn a Simple Linear Regression model, Y = $\\beta_0$ + $\\beta_1$ X + $\\epsilon$, what does $\\beta_1$ represent?",
+                options: ["The predicted value of Y when X is zero (Y-intercept).", "The residual error term.", "The slope, representing the change in Y for a one-unit change in X.", "The constant feature bias."],
+                answer: "C"
+            },
+            {
+                q: "15. Regularization\nL1 and L2 are common types of Regularization used to prevent overfitting. Which type is known for driving some feature weights exactly to zero, effectively performing feature selection?",
+                options: ["L1 Regularization (Lasso)", "L2 Regularization (Ridge)", "Elastic Net", "Dropout"],
+                answer: "A"
+            },
+            {
+                q: "16. K-Nearest Neighbors (KNN)\nThe K-Nearest Neighbors (KNN) algorithm is a type of:",
+                options: ["Parametric Model", "Non-parametric Model", "Model-based Clustering", "Deep Learning Model"],
+                answer: "B"
+            },
+            {
+                q: "17. Deep Learning\nWhat is the defining characteristic that distinguishes Deep Learning from traditional Machine Learning?",
+                options: ["Deep Learning models are exclusively used for text data.", "Deep Learning models are always faster to train.", "The use of multiple layers (deep architectures) in neural networks.", "The requirement for labeled training data."],
+                answer: "C"
+            },
+            {
+                q: "18. Reinforcement Learning (RL)\nIn the context of Reinforcement Learning, the numerical score or feedback that an agent receives from the environment after performing an action is called the:",
+                options: ["State", "Policy", "Reward", "Action Space"],
+                answer: "C"
+            },
+            {
+                q: "19. Data Preparation\nWhat process involves handling missing values, standardizing or normalizing features, and transforming categorical variables into a numerical format?",
+                options: ["Model Training", "Model Deployment", "Data Preprocessing/Data Wrangling", "Hyperparameter Tuning"],
+                answer: "C"
+            },
+            {
+                q: "20. Learning Curve\nIn the context of model diagnostics, a learning curve plots the model's performance (error or accuracy) against:",
+                options: ["The number of features used.", "The value of the F1 Score.", "The size of the training dataset.", "The complexity of the model (e.g., degree of a polynomial)."],
+                answer: "C"
+            }
+        ],
+        "Data Science": [
+            {
+                q: "1. Definition of Data Science\nData Science is primarily defined as an interdisciplinary field that uses which three core elements to extract knowledge and insights from data?",
+                options: ["Computer Engineering, Logic Programming, and Art.", "Scientific Methods, Processes, and Systems to extract knowledge from data in various forms.", "Accounting, Business Management, and Law.", "Software Development, Hardware Optimization, and Networking."],
+                answer: "B"
+            },
+            {
+                q: "2. The Data Science Process\nIn the CRISP-DM (Cross-Industry Standard Process for Data Mining) methodology, which step immediately follows Data Understanding?",
+                options: ["Deployment", "Evaluation", "Data Preparation", "Business Understanding"],
+                answer: "C"
+            },
+            {
+                q: "3. Data Types\nWhich type of data is characterized by being countable and often restricted to integer values (e.g., number of cars, number of students)?",
+                options: ["Continuous Data", "Nominal Data", "Discrete Data", "Ordinal Data"],
+                answer: "C"
+            },
+            {
+                q: "4. Sampling Technique\nWhich sampling technique ensures that all subsets of a given size have an equal chance of being selected, which is often used to divide data into training and testing sets?",
+                options: ["Systematic Sampling", "Convenience Sampling", "Stratified Sampling", "Simple Random Sampling"],
+                answer: "D"
+            },
+            {
+                q: "5. Central Tendency\nWhich measure of central tendency is most appropriate for a highly skewed dataset, as it is least affected by outliers?",
+                options: ["Mean (Average)", "Standard Deviation", "Median", "Mode"],
+                answer: "C"
+            },
+            {
+                q: "6. Variance and Standard Deviation\nWhat does a high Standard Deviation value indicate about a dataset?",
+                options: ["The data points are closely clustered around the mean.", "The data points are spread out over a wide range of values.", "The mean and median are nearly identical.", "The dataset contains no outliers."],
+                answer: "B"
+            },
+            {
+                q: "7. Data Cleaning/Wrangling\nWhich of the following techniques is commonly used to handle missing values in a numerical dataset?",
+                options: ["One-Hot Encoding", "Imputation (e.g., filling with the mean or median)", "Feature Scaling", "Dimensionality Reduction"],
+                answer: "B"
+            },
+            {
+                q: "8. Feature Engineering\nWhat is the process of transforming raw data into features that better represent the underlying problem to a predictive model?",
+                options: ["Data Visualization", "Model Deployment", "Feature Engineering", "Data Imputation"],
+                answer: "C"
+            },
+            {
+                q: "9. Normalization vs. Standardization\nWhich data scaling technique transforms features to have a mean of 0 and a standard deviation of 1?",
+                options: ["Normalization (Min-Max Scaling)", "Standardization (Z-Score Scaling)", "Log Transformation", "Binning"],
+                answer: "B"
+            }
+            // ... (rest of the Data Science quiz content)
+        ],
+        "Web Development": [
+            {
+                q: "1. Fundamental Markup Language\nWhich language is primarily responsible for structuring the content of a web page?",
+                options: ["JavaScript", "CSS", "HTML", "PHP"],
+                answer: "C"
+            },
+            {
+                q: "2. Styling a Web Page\nWhich language is used to control the visual appearance, layout, and presentation of a web page?",
+                options: ["HTML", "CSS", "SQL", "Python"],
+                answer: "B"
+            },
+            {
+                q: "3. Dynamic Behavior\nWhich client-side scripting language is essential for adding interactivity and dynamic behavior to a web page?",
+                options: ["JavaScript", "Java", "C#", "Ruby"],
+                answer: "A"
+            },
+            {
+                q: "4. Box Model\nIn the CSS Box Model, which component is the outermost layer and represents the space outside the element's border?",
+                options: ["Padding", "Content", "Border", "Margin"],
+                answer: "D"
+            },
+            {
+                q: "5. CSS Selectors\nWhich CSS selector targets an element based on its unique identifier?",
+                options: ["Class selector (.example)", "Tag selector (p)", "ID selector (#example)", "Attribute selector ([type=\"text\"])"],
+                answer: "C"
+            },
+            {
+                q: "6. HTML Semantic Tags\nWhich HTML5 tag should be used to define a group of navigation links?",
+                options: ["<section>", "<main>", "<nav>", "<footer>"],
+                answer: "C"
+            },
+            {
+                q: "7. Server-Side Scripting\nWhich of the following is an example of a server-side programming language commonly used for web development?",
+                options: ["JavaScript (client-side)", "CSS", "Python (using Django/Flask)", "HTML"],
+                answer: "C"
+            },
+            {
+                q: "8. HTTP Methods\nWhich HTTP method is typically used to retrieve data from a specified resource on the server?",
+                options: ["POST", "PUT", "GET", "DELETE"],
+                answer: "C"
+            },
+            {
+                q: "9. Web Accessibility\nWhat is the purpose of the alt attribute on the HTML <img> tag?",
+                options: ["To define the alignment of the image.", "To provide a source URL for the image.", "To provide descriptive alternative text for screen readers and when the image fails to load.", "To set the image width and height."],
+                answer: "C"
+            },
+            {
+                q: "10. Responsive Design\nWhat CSS feature is most commonly used to apply different styles based on the size of the user's viewport (e.g., screen width)?",
+                options: ["Transitions", "Media Queries", "Flexbox", "CSS Grid"],
+                answer: "B"
+            },
+            {
+                q: "11. JavaScript Scope\nWhat keyword is used in JavaScript to declare a variable that is block-scoped and cannot be redeclared?",
+                options: ["var", "let or const", "function", "global"],
+                answer: "B"
+            },
+            {
+                q: "12. API Communication\nWhat widely-used format is often used for transmitting data between a client (browser) and a server via an API because of its lightweight and human-readable nature?",
+                options: ["XML", "YAML", "JSON", "SOAP"],
+                answer: "C"
+            },
+            {
+                q: "13. DOM Manipulation\nWhat does the acronym DOM stand for in the context of web development?",
+                options: ["Dynamic Object Manager", "Data Ordering Model", "Document Object Model", "Digital Output Module"],
+                answer: "C"
+            },
+            {
+                q: "14. Frontend Frameworks\nWhich of the following is a popular JavaScript library/framework primarily used for building single-page application (SPA) user interfaces?",
+                options: ["Node.js", "Django", "React or Vue.js", "Apache"],
+                answer: "C"
+            },
+            {
+                q: "15. Form Submission\nWhat attribute of the HTML <form> tag specifies the URL to which the form data will be submitted?",
+                options: ["method", "type", "enctype", "action"],
+                answer: "D"
+            },
+            {
+                q: "16. Web Security (Client-Side)\nWhat is the term for a security vulnerability where malicious scripts are injected into trusted websites and executed by the user's browser?",
+                options: ["Cross-Site Request Forgery (CSRF)", "SQL Injection", "Cross-Site Scripting (XSS)", "Denial of Service (DoS)"],
+                answer: "C"
+            },
+            {
+                q: "17. CSS Positioning\nWhich CSS position value takes the element out of the normal document flow but remains fixed relative to the viewport, staying in the same place even when the user scrolls?",
+                options: ["relative", "absolute", "static", "fixed"],
+                answer: "D"
+            },
+            {
+                q: "18. JavaScript Asynchronous Operations\nIn JavaScript, what mechanism is commonly used to handle the eventual completion (or failure) of an asynchronous operation, like an API call?",
+                options: ["for loop", "Promises (.then(), .catch())", "Synchronous Callbacks", "Event Listeners"],
+                answer: "B"
+            },
+            {
+                q: "19. Web Hosting\nWhat is a CDN (Content Delivery Network) primarily used for in web development?",
+                options: ["To create database backups.", "To manage server-side logic.", "To deliver static content (images, videos, scripts) to users quickly by distributing files across multiple servers geographically.", "To encrypt data transmitted over HTTPS."],
+                answer: "C"
+            },
+            {
+                q: "20. Version Control\nWhat is the most widely used version control system for tracking changes in source code during web development?",
+                options: ["FTP", "Git", "SVN", "Docker"],
+                answer: "B"
+            }
+        ],
+        "Android Development": [
+            {
+                q: "1. Primary Language\nWhat is the primary programming language officially recommended by Google for modern Android application development?",
+                options: ["Java", "C++", "Kotlin", "Python"],
+                answer: "C"
+            },
+            {
+                q: "2. Core Building Block\nWhich of the following is the fundamental building block of an Android user interface, representing a single screen with which the user can interact?",
+                options: ["Service", "Broadcast Receiver", "Content Provider", "Activity"],
+                answer: "D"
+            },
+            {
+                q: "3. Layout File Format\nWhat file format is used to define the layout (UI structure) of an Activity in Android?",
+                options: ["JSON", "XML", "HTML", "Manifest"],
+                answer: "B"
+            },
+            {
+                q: "4. Application Configuration\nWhich mandatory file contains essential information about the application (its components, permissions, hardware features, etc.) that the Android system needs to run the code?",
+                options: ["strings.xml", "build.gradle", "AndroidManifest.xml", "MainActivity.java"],
+                answer: "C"
+            },
+            {
+                q: "5. UI Element\nWhich ViewGroup is designed to arrange its child views in a single row or column?",
+                options: ["ConstraintLayout", "RelativeLayout", "GridLayout", "LinearLayout"],
+                answer: "D"
+            },
+            {
+                q: "6. Managing Activity States\nWhich lifecycle method is called when an Activity is no longer visible to the user, but its instance is still kept in memory?",
+                options: ["onCreate()", "onStart()", "onStop()", "onDestroy()"],
+                answer: "C"
+            },
+            {
+                q: "7. Explicit Navigation\nWhat is the primary object used to request an action from another app component, such as launching a new Activity?",
+                options: ["Context", "Bundle", "Intent", "Handler"],
+                answer: "C"
+            },
+            {
+                q: "8. Background Operations\nWhich component is best suited for performing long-running operations in the background without a user interface (e.g., fetching data over the network)?",
+                options: ["Activity", "Broadcast Receiver", "Service", "Content Provider"],
+                answer: "C"
+            },
+            {
+                q: "9. Resource Files\nWhere are image files, application icons, and custom XML drawables stored in an Android project?",
+                options: ["layout/", "values/", "drawable/", "assets/"],
+                answer: "C"
+            },
+            {
+                q: "10. External Libraries\nWhat is the name of the build system used by Android Studio that manages dependencies (external libraries) and allows for flexible project configuration?",
+                options: ["Maven", "Ant", "Gradle", "NDK"],
+                answer: "C"
+            },
+            {
+                q: "11. Data Passing\nWhat is the term for the key-value map used to pass data between Activities using an Intent?",
+                options: ["SharedPreferences", "Adapter", "Bundle", "ViewModel"],
+                answer: "C"
+            },
+            {
+                q: "12. List Views\nWhich view component is used to display a scrollable list of items, where the view for each item is created and reused efficiently?",
+                options: ["ListView (deprecated)", "ScrollView", "LinearLayout", "RecyclerView"],
+                answer: "D"
+            },
+            {
+                q: "13. UI Thread\nIn Android development, what is the name of the single thread responsible for handling all user interface events and updates?
+                ",
+                options: ["Background Thread", "Worker Thread", "Main Thread (or UI Thread)", "Executor Thread"],
+                answer: "C"
+            },
+            {
+                q: "14. Data Persistence (Small Data)\nWhich mechanism is best used for persistently storing a small collection of key-value pairs (like user settings or preferences)?",
+                options: ["SQLite Database", "Content Provider", "Internal Storage (Files)", "SharedPreferences"],
+                answer: "D"
+            },
+            {
+                q: "15. View Binding\nWhat modern feature replaces the need to manually call findViewById() to reference UI elements in code?",
+                options: ["Data Binding", "View Binding", "Butter Knife (deprecated)", "Resource Mapping"],
+                answer: "B"
+            },
+            {
+                q: "16. App Permissions\nWhere must an application declare its need to access sensitive information or capabilities (like the camera or GPS location)?",
+                options: ["In the build.gradle file.", "In the AndroidManifest.xml file.", "In the main Activity's onCreate() method.", "In the strings.xml file."],
+                answer: "B"
+            },
+            {
+                q: "17. Architecture Components\nWhich component from the Android Architecture Components is used to store and manage UI-related data in a lifecycle-conscious way, surviving configuration changes like screen rotations?",
+                options: ["LiveData", "Room Database", "ViewModel", "CoroutineScope"],
+                answer: "C"
+            },
+            {
+                q: "18. XML Attributes\nWhat XML attribute is used to reference a resource (like a string or a color) defined in the values/ directory?",
+                options: ["android:id", "android:layout_width", "@string/app_name (or similar @ syntax)", "android:textStyle"],
+                answer: "C"
+            },
+            {
+                q: "19. Fragments\nWhat is a Fragment in Android development?",
+                options: ["A process that runs in the background indefinitely.", "A temporary data structure used for Intent communication.", "A modular section of an Activity's user interface, with its own lifecycle.", "The smallest unit of work in a Service."],
+                answer: "C"
+            },
+            {
+                q: "20. App Signing\nWhat is the purpose of signing an Android application with a digital certificate (keystore)?",
+                options: ["To encrypt all data sent over the network.", "To uniquely identify the developer and ensure that updates come from the original creator.", "To verify that the app is compatible with all devices.", "To reduce the overall size of the APK file."],
+                answer: "B"
+            }
+        ],
+        "Cloud Computing- AWS": [
+            {
+                q: "1. Fundamental Definition\nWhat is the most accurate definition of Cloud Computing?",
+                options: ["Storing data locally on a large server farm.", "The on-demand delivery of compute power, database storage, applications, and other IT resources via the internet with pay-as-you-go pricing.", "Using virtualization technology to run multiple operating systems on one machine.", "Using a Content Delivery Network (CDN) to serve static files."],
+                answer: "B"
+            },
+            {
+                q: "2. Service Models\nWhich cloud service model provides consumers with complete access to and control over operating systems, applications, and middleware, while the provider manages the underlying hardware and infrastructure?",
+                options: ["Software as a Service (SaaS)", "Platform as a Service (PaaS)", "Infrastructure as a Service (IaaS)", "Function as a Service (FaaS)"],
+                answer: "C"
+            },
+            {
+                q: "3. Service Models (IaaS)\nIn the Infrastructure as a Service (IaaS) model, which of the following is the customer's primary responsibility?",
+                options: ["Managing the application code and deployment only.", "Managing the operating system, applications, and runtime environment.", "Managing only the network and storage hardware.", "The provider manages everything."],
+                answer: "B"
+            },
+            {
+                q: "4. Deployment Models\nA cloud deployment model where the cloud infrastructure is exclusively operated for a single organization, managed either internally or by a third party, is known as a:",
+                options: ["Public Cloud", "Private Cloud", "Hybrid Cloud", "Community Cloud"],
+                answer: "B"
+            },
+            {
+                q: "5. Deployment Models\nWhich model combines two or more distinct cloud infrastructures (private, public, or community) that remain unique entities but are bound together by standardized technology?",
+                options: ["Private Cloud", "Hybrid Cloud", "Public Cloud", "Distributed Cloud"],
+                answer: "B"
+            },
+            {
+                q: "6. Scalability\nWhat term describes the ability of a cloud system to automatically increase or decrease resources (e.g., servers or storage) based on current demand?",
+                options: ["Resilience", "Latency", "Elasticity/Scalability", "Redundancy"],
+                answer: "C"
+            },
+            {
+                q: "7. Virtualization\nWhat foundational technology enables cloud providers to host multiple isolated operating system instances on a single physical server?",
+                options: ["Load Balancing", "Containerization", "Virtualization", "Serverless Computing"],
+                answer: "C"
+            },
+            {
+                q: "8. Cost Management\nThe \"pay-as-you-go\" pricing model in cloud computing is also known as a(n):",
+                options: ["Fixed Capital Expenditure (CapEx)", "Variable Operational Expenditure (OpEx)", "Subscription Model", "Managed Service Fee"],
+                answer: "B"
+            },
+            {
+                q: "9. Serverless Computing\nIn the context of Serverless computing (or Function as a Service - FaaS), which statement is true?",
+                options: ["The developer must provision and manage the underlying virtual servers.", "The developer writes and uploads code, and the cloud provider automatically provisions and scales the required computing resources.", "It is only used for static website hosting.", "It guarantees zero costs, regardless of usage"],
+                answer: "B"
+            }
+            // ... (rest of the Cloud Computing quiz content)
+        ],
+        "Java": [
+            { q: "1. What type of programming paradigm does Java primarily follow?", options: ["Procedural Programming", "Functional Programming", "Object-Oriented Programming (OOP)", "Logic Programming"], answer: "C" },
+            { q: "2. Bytecode and Platform Independence\nWhat component in the Java environment is responsible for executing the Java Bytecode, enabling platform independence?", options: ["Java Development Kit (JDK)", "Java Compiler", "Java Virtual Machine (JVM)", "Just-In-Time (JIT) Compiler"], answer: "C" },
+            { q: "3. Basic Data Types\nWhich of the following data types in Java is used to store a single, 16-bit Unicode character?", options: ["int", "byte", "char", "String"], answer: "C" },
+            { q: "4. Method Signature\nWhich method is the starting point for the execution of every standard Java application?", options: ["public void start()", "public int main(String[] args)", "public static void main(String[] args)", "void main()"], answer: "C" },
+            { q: "5. OOP Concept\nThe concept in OOP where an object's internal data is hidden from the outside world and accessed only through predefined methods is called:", options: ["Inheritance", "Polymorphism", "Encapsulation", "Abstraction"], answer: "C" },
+            { q: "6. Inheritance\nWhat keyword is used in Java to acquire the properties and methods of an existing class?", options: ["implements", "new", "extends", "this"], answer: "C" },
+            { q: "7. Polymorphism\nThe ability of an object to take on many forms, often achieved through Method Overloading and Method Overriding, is known as:", options: ["Abstraction", "Encapsulation", "Polymorphism", "Aggregation"], answer: "C" },
+            { q: "8. Memory Management\nWhich automatic process in Java is responsible for freeing up memory that is no longer being used by objects?", options: ["Memory Deallocation", "Explicit free() method", "Garbage Collection", "Memory Compaction"], answer: "C" },
+            { q: "9. Access Modifiers\nWhich access modifier restricts access to members only within the same class and its subclasses, regardless of the package?", options: ["public", "default (no modifier)", "private", "protected"], answer: "D" },
+            { q: "10. final Keyword\nWhen the final keyword is applied to a variable, what is the effect?", options: ["The variable can only be accessed within the package.", "The variable's value cannot be changed once initialized (it becomes a constant).", "The variable must be initialized in the constructor.", "The variable is thread-safe."], answer: "B" },
+            { q: "11. Exception Handling\nWhich block of code is used to enclose the code that might throw an exception, allowing you to handle the error gracefully?", options: ["catch", "finally", "throws", "try"], answer: "D" },
+            { q: "12. Abstract Classes\nA class that is declared with the abstract keyword and may contain abstract methods (methods without a body) cannot be:", options: ["Inherited by another class.", "Used to declare variables.", "Instantiated (you cannot create an object of an abstract class).", "Declared public."], answer: "C" },
+            { q: "13. Interfaces\nWhat keyword is used when a class adopts the methods defined in an Interface?", options: ["extends", "inherit", "implements", "interface"], answer: "C" },
+            { q: "14. String vs. StringBuilder\nWhich class is used when a sequence of characters needs to be modified frequently in a single thread, as it is mutable and generally faster than its immutable counterpart?", options: ["String", "StringBuffer (mutable, synchronized)", "StringBuilder (mutable, non-synchronized)", "char[]"], answer: "C" },
+            { q: "15. Packages\nWhat is the purpose of a Package in Java?", options: ["To define the entry point of the application.", "To organize related classes and interfaces, and provide access control/namespace management.", "To handle errors during runtime.", "To define the architecture of the JVM."], answer: "B" },
+            { q: "16. Arrays\nIn Java, once an array is created, which property of the array cannot be changed?", options: ["The values of its elements.", "Its size (number of elements).", "The data type of its elements.", "Its name."], answer: "B" },
+            { q: "17. Conditional Loops\nWhat is the guaranteed difference between a while loop and a do-while loop?", options: ["The while loop is always faster.", "The while loop checks the condition at the end.", "The do-while loop executes the body at least once, regardless of the condition.", "The do-while loop is only used for numerical iteration."], answer: "C" },
+            { q: "18. Collections Framework\nWhich interface in the Java Collections Framework represents a collection of unique elements that does not maintain insertion order?", options: ["List", "Map", "Queue", "Set"], answer: "D" },
+            { q: "19. Constructor\nWhat is a Constructor in Java?", options: ["A method that is called to destroy an object.", "A special method used to initialize objects.", "A method used to define static variables.", "A method used to return the current state of an object."], answer: "B" },
+            { q: "20. Static Keyword\nWhen a method or variable is declared as static, how is it accessed?", options: ["Only through an instance (object) of the class.", "Only from within the same class.", "Through the class name itself, without needing an object instance.", "Only after the constructor has been called."], answer: "C" }
+        ],
+        "Digital Marketing": [
+            { q: "1. Core Definition\nWhich term refers to marketing that utilizes electronic devices and the internet to promote products or services?", options: ["Traditional Marketing", "Content Marketing", "Digital Marketing", "Offline Advertising"], answer: "C" },
+            { q: "2. Search Engine Optimization (SEO)\nWhat is the primary goal of Search Engine Optimization (SEO)?", options: ["To run paid advertisements on search engines.", "To create engaging posts for social media.", "To increase the quantity and quality of organic traffic to a website from search engine results.", "To manage customer relationships through email."], answer: "C" },
+            { q: "3. Keyword Research\nIn the context of SEO, a long-tail keyword is characterized by:", options: ["Having high search volume and high competition.", "Being a longer, more specific phrase (three or more words) with lower search volume and lower competition.", "Being a single word that broadly defines the topic.", "Only being relevant for paid search campaigns."], answer: "B" },
+            { q: "4. Search Engine Marketing (SEM)\nWhat does the acronym PPC stand for in the context of Search Engine Marketing (SEM)?", options: ["Post Production Cost", "Pay-Per-Click", "Personalized Product Campaign", "Primary Page Content"], answer: "B" },
+            { q: "5. Google Ads Bidding\nIn a Google Ads campaign, the maximum amount an advertiser is willing to pay for a single click on their ad is called the:", options: ["Quality Score", "Impression Share", "Maximum Bid (Max CPC)", "Conversion Rate"], answer: "C" },
+            { q: "6. Content Marketing\nWhich type of marketing focuses on creating and distributing valuable, relevant, and consistent content to attract and retain a clearly defined audience?", options: ["Affiliate Marketing", "Content Marketing", "Email Marketing", "Display Advertising"], answer: "B" },
+            { q: "7. Social Media Marketing (SMM)\nWhat metric is used to measure the extent to which people are engaging with social media content (e.g., likes, shares, comments)?", options: ["Impression Share", "Click-Through Rate (CTR)", "Engagement Rate", "Cost Per Acquisition (CPA)"], answer: "C" },
+            { q: "8. Email Marketing Metric\nWhat is the calculation used to determine the percentage of recipients who opened a specific email in an email campaign?", options: ["Click-Through Rate (CTR)", "Conversion Rate", "Bounce Rate", "Open Rate"], answer: "D" },
+            { q: "9. Website Analytics\nWhat does Bounce Rate represent in Google Analytics?", options: ["The percentage of users who clicked an ad and immediately closed the site.", "The percentage of email addresses that failed to deliver.", "The percentage of visitors who enter the site and leave (\"bounce\") rather than continue to view other pages.", "The percentage of visitors who return to the site within a specified period."], answer: "C" },
+            { q: "10. Conversion Rate Optimization (CRO)\nWhat is the practice of increasing the percentage of website visitors who complete a desired goal (a \"conversion\"), such as filling out a form or making a purchase?", options: ["SEO", "SEM", "Conversion Rate Optimization (CRO)", "A/B Testing (which is a method of CRO, not the practice itself)"], answer: "C" },
+            { q: "11. Technical SEO\nWhat is a robots.txt file primarily used for?", options: ["To define the sitemap structure for search engines.", "To tell search engine crawlers which pages or files on the site they should not access or crawl.", "To manage JavaScript rendering on the page.", "To track user behavior on the site."], answer: "B" },
+            { q: "12. Link Building\nIn the context of SEO, a backlink is:", options: ["An internal link from one page to another on the same website.", "A link from another website to your own website.", "A broken link that leads to a 404 error.", "The navigation path at the bottom of a page."], answer: "B" },
+            { q: "13. Paid Search Targeting\nWhich type of targeting in paid advertising focuses on showing ads to users who have previously visited the advertiser's website?", options: ["Lookalike Audiences", "Demographic Targeting", "Retargeting/Remarketing", "Contextual Targeting"], answer: "C" },
+            { q: "14. Landing Pages\nWhat is the key characteristic of an effective Landing Page?", options: ["It contains the entire website navigation menu.", "It is a standalone web page created specifically for a marketing or advertising campaign, designed to prompt a single, clear action (conversion).", "It includes complex animations and videos.", "It is the homepage of the website."], answer: "B" },
+            { q: "15. A/B Testing\nWhat is the process of comparing two versions of a web page, ad copy, or email against each other to determine which one performs better in terms of conversions or engagement?", options: ["SEO Audit", "Multivariate Testing", "A/B Testing (Split Testing)", "Quality Score Analysis"], answer: "C" },
+            { q: "16. Digital PR\nHow does Digital PR contribute to SEO?", options: ["By running paid display ads.", "By optimizing page load speed.", "By securing mentions and backlinks from high-authority news sites and blogs.", "By creating high-volume, low-quality content."], answer: "C" },
+            { q: "17. Affiliate Marketing\nIn Affiliate Marketing, the affiliate is primarily rewarded for:", options: ["Providing technical support to customers.", "Managing the brand's social media presence.", "Driving sales, leads, or traffic to the merchant's website.", "Creating the product itself."], answer: "C" },
+            { q: "18. Customer Relationship Management (CRM)\nWhich type of software is used by digital marketers to manage and analyze customer interactions and data throughout the customer lifecycle?", options: ["Enterprise Resource Planning (ERP)", "Customer Relationship Management (CRM)", "Content Management System (CMS)", "Project Management Software"], answer: "B" },
+            { q: "19. Attribution Modeling\nIn digital marketing, what is Attribution Modeling?", options: ["The process of assigning budget to different marketing channels.", "The process of validating conversion rates.", "The rule, or set of rules, that determines how credit for sales and conversions is assigned to touchpoints in conversion paths.", "The measure of customer satisfaction."], answer: "C" },
+            { q: "20. Video Marketing Platform\nWhich platform is considered the world's second-largest search engine and is critical for video content marketing?", options: ["Facebook", "Instagram", "Bing", "YouTube"], answer: "D" }
+        ],
+        "Finance": [
+            { q: "1. Financial Objective\nWhat is generally considered the primary goal of financial management for a publicly traded company?", options: ["Maximizing profit in the current year.", "Maximizing shareholder wealth (or stock price).", "Minimizing expenses and costs.", "Maintaining a high level of liquidity."], answer: "B" },
+            { q: "2. Time Value of Money\nWhat concept states that a dollar today is worth more than a dollar tomorrow?", options: ["Risk-Return Trade-off", "Time Value of Money", "Efficient Market Hypothesis (EMH)", "Diversification Principle"], answer: "B" },
+            { q: "3. Financial Statements\nWhich financial statement reports a company's revenues, expenses, and net income over a specific period?", options: ["Balance Sheet", "Statement of Cash Flows", "Income Statement (or Profit and Loss Statement)", "Statement of Retained Earnings"], answer: "C" },
+            { q: "4. Balance Sheet Components\nWhich of the following equations represents the fundamental accounting equation found on the Balance Sheet?", options: ["Revenue - Expenses = Net Income", "Assets = Liabilities + Equity", "Beginning Cash + Cash Inflows - Cash Outflows = Ending Cash", "Sales - Cost of Goods Sold = Gross Profit"], answer: "B" },
+            { 
+                // The 5th question text provided was incomplete. It is added as provided with a generic option placeholder.
+                q: "5. Risk and Return\nIn finance, the relationship between risk and required return is generally co", 
+                options: ["rr-elated (Incomplete in source)", "Placeholder 2", "Placeholder 3", "Placeholder 4"], 
+                answer: "A" 
+            } 
+        ]
+        // You would add quizzes for all other 24 courses here
+    };
+
+    const startQuizButton = document.getElementById('start-quiz-btn');
+    const courseSelect = document.getElementById('course-select');
+    const quizArea = document.getElementById('quiz-area');
+    const quizTitle = document.getElementById('quiz-title');
+    const quizForm = document.getElementById('quiz-form');
+    
+    // Convert option letters to an array for easy mapping
+    const optionLetters = ['A', 'B', 'C', 'D'];
+
+    function renderQuiz(courseName) {
+        const quiz = quizzes[courseName];
+        if (!quiz) {
+            alert(`Quiz for ${courseName} is not yet available.`);
+            return;
+        }
+
+        quizTitle.textContent = `Quiz on: ${courseName}`;
+        quizForm.innerHTML = ''; // Clear previous questions
+
+        quiz.forEach((qItem, index) => {
+            const questionElement = document.createElement('div');
+            questionElement.classList.add('question');
+            
+            // Replace \n with <br> for line breaks in the question text
+            let questionHtml = `<p>${qItem.q.replace(/\n/g, '<br>')}</p>`;
+            
+            qItem.options.forEach((option, optionIndex) => {
+                const optionLetter = optionLetters[optionIndex];
+                // Using 'name' attribute to group radio buttons
+                const radioName = `q${index + 1}`; 
+                
+                questionHtml += `
+                    <label>
+                        <input type="radio" name="${radioName}" value="${optionLetter}" required>
+                        <span style="font-weight: bold;">${optionLetter}.</span> ${option}
+                    </label>
+                `;
+            });
+
+            questionElement.innerHTML = questionHtml;
+            quizForm.appendChild(questionElement);
+        });
+
+        quizArea.style.display = 'block';
+        quizArea.scrollIntoView({ behavior: 'smooth' }); // Scroll to the quiz
+    }
+
+    startQuizButton.addEventListener('click', function() {
+        // Simple form validation (checks if fields are not empty and a course is selected)
+        const form = document.getElementById('student-data-form');
+        const requiredFields = form.querySelectorAll('[required]');
+        let isValid = true;
+        
+        requiredFields.forEach(field => {
+            if (!field.value) {
+                isValid = false;
+                field.style.border = '2px solid red';
+            } else {
+                 field.style.border = '1px solid #ccc';
+            }
+        });
+
+        if (isValid) {
+            const selectedCourse = courseSelect.value;
+            renderQuiz(selectedCourse);
+            // Hide the data form once the quiz starts
+            form.style.display = 'none';
+        } else {
+            alert('Please fill out all the required details before starting the quiz.');
+        }
+    });
+
+    quizForm.addEventListener('submit', function(event) {
+        event.preventDefault();
+        alert("Quiz Submitted! Thank you for participating. Your results will be processed soon.");
+        // In a real application, you would collect the student data (from form values) and quiz answers (from form values) here
+        // and send them to a server (e.g., using fetch() or XMLHttpRequest).
+    });
+</script>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InternzLearn - Open Quiz</title>
+    <style>
+        /* CSS from previous versions remains here for styling */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f7f6; /* Very Light Gray/Off-White */
+            color: #333;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 900px;
+            margin: 30px auto;
+            padding: 30px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #3F51B5; /* Indigo */
+            margin-bottom: 30px;
+            border-bottom: 3px solid #FFC107;
+            padding-bottom: 10px;
+        }
+
+        /* Form Styling */
+        .data-form label {
+            display: block;
+            font-weight: bold;
+            margin-top: 15px;
+            color: #4CAF50; /* Green */
+        }
+
+        .data-form input[type="text"],
+        .data-form input[type="email"],
+        .data-form input[type="tel"],
+        .data-form select {
+            width: 100%;
+            padding: 12px;
+            margin-top: 5px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+            font-size: 1em;
+        }
+
+        /* Quiz Selection Button */
+        #start-quiz-btn {
+            background-color: #FFC107; /* Yellow/Amber */
+            color: #333;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1.1em;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 8px;
+            transition: background-color 0.3s;
+            display: block;
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        #start-quiz-btn:hover {
+            background-color: #FFA000;
+        }
+
+        /* Quiz Area Styling */
+        #quiz-area {
+            display: none; /* Hidden initially */
+            margin-top: 40px;
+            border-top: 2px solid #2196F3; /* Blue separator */
+            padding-top: 30px;
+        }
+
+        .question {
+            margin-bottom: 25px;
+            padding: 15px;
+            border-left: 5px solid #4CAF50; /* Green highlight */
+            background-color: #f9f9f9;
+            border-radius: 5px;
+        }
+
+        .question p {
+            font-weight: bold;
+            font-size: 1.1em;
+            color: #3F51B5; /* Indigo */
+            margin-top: 0;
+        }
+
+        .question label {
+            display: block;
+            margin: 10px 0;
+            cursor: pointer;
+            transition: background-color 0.2s;
+            padding: 8px;
+            border-radius: 4px;
+        }
+
+        .question label:hover {
+            background-color: #e3f2fd; /* Lightest Blue */
+        }
+
+        .question input[type="radio"] {
+            margin-right: 10px;
+        }
+
+        /* Submit Button Group */
+        #final-action-group {
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .btn-finish, .btn-submit-final, .btn-check {
+            background-color: #00796B; /* Dark Teal */
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1.2em;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 8px;
+            transition: background-color 0.3s;
+            margin: 10px;
+            display: inline-block;
+        }
+        
+        .btn-finish:hover, .btn-submit-final:hover, .btn-check:hover {
+            background-color: #004D40;
+        }
+
+        .btn-submit-final {
+            background-color: #F44336; /* Red for final action */
+            display: none; /* Hidden initially */
+        }
+
+        .btn-check {
+            background-color: #2196F3; /* Blue for Check */
+            display: none; /* Hidden initially */
+        }
+        
+        .back-home {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            color: #2196F3;
+            text-decoration: none;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>🚀 Open Quiz Challenge 🧠</h1>
+    <a href="index.html" class="back-home">← Back to Home Page</a>
+
+    <form id="student-data-form" class="data-form">
+        <label for="name">Name</label>
+        <input type="text" id="name" required>
+
+        <label for="email">Email</label>
+        <input type="email" id="email" required>
+
+        <label for="phone">Phone Number</label>
+        <input type="tel" id="phone" required>
+
+        <label for="college">College</label>
+        <input type="text" id="college" required>
+
+        <label for="department">Department</label>
+        <input type="text" id="department" required>
+
+        <label for="year">Year</label>
+        <input type="text" id="year" required>
+
+        <label for="course-select">Choose a Course for Quiz</label>
+        <select id="course-select" required>
+            <option value="">-- Select a Course --</option>
+            <option value="Artificial Intelligence">ARTIFICIAL INTELLIGENCE</option>
+            <option value="Machine Learning">MACHINE LEARNING</option>
+            <option value="Data Science">DATA SCIENCE</option>
+            <option value="Web Development">WEB DEVELOPMENT</option>
+            <option value="Android Development">ANDROID DEVELOPMENT</option>
+            <option value="Cloud Computing- AWS">Cloud Computing- AWS</option>
+            <option value="Cyber Security">Cyber Security</option>
+            <option value="Java">Java</option>
+            <option value="Python">Python</option>
+            <option value="Embedded System">Embedded System</option>
+            <option value="Internet of Things">Internet of Things</option>
+            <option value="Hybrid Electric Vehicle">Hybrid Electric Vehicle</option>
+            <option value="Robotics">Robotics</option>
+            <option value="AutoCAD">AutoCAD</option>
+            <option value="Construction Planning">Construction Planning</option>
+            <option value="IC Engine Design">IC Engine Design</option>
+            <option value="Human Resources">Human Resources</option>
+            <option value="Finance">Finance</option>
+            <option value="Sales & Marketing">Sales & Marketing</option>
+            <option value="Digital Marketing">Digital Marketing</option>
+            <option value="Stock Market">Stock Market</option>
+            <option value="Industrial Biotechnology">Industrial Biotechnology</option>
+            <option value="Psychology">Psychology</option>
+            <option value="Medical Coding">Medical Coding</option>
+            <option value="VLSI">VLSI</option>
+        </select>
+        
+        <button type="button" id="start-quiz-btn">Start Quiz</button>
+    </form>
+    
+    <div id="quiz-area">
+        <h2 id="quiz-title" style="text-align: center; color: #F44336;">Quiz on Selected Course</h2>
+        <form id="quiz-form">
+            </form>
+        
+        <div id="final-action-group">
+            <button type="button" class="btn-finish" id="finish-btn">Finish Quiz</button>
+            <button type="button" class="btn-check" id="check-btn">Check</button>
+            <button type="submit" class="btn-submit-final" id="submit-btn" form="quiz-form">Submit</button>
+        </div>
+    </div>
+
+</div>
+
+<script>
+    // Define the quizzes data structure
+    const quizzes = {
+        "Artificial Intelligence": [
+            {
+                q: "1. Definition of Machine Learning\nWhich definition best describes Machine Learning (ML)?",
+                options: ["Programming computers to perform tasks by explicitly coding all rules and decision paths.", "The use of logic and reasoning to solve complex problems without data.", "The field of study that gives computers the ability to learn without being explicitly programmed.", "Applying statistical methods only to structured, numerical data."],
+                answer: "C"
+            },
+            {
+                q: "2. Learning Paradigms\nIn which type of learning is the model trained on data that includes input features along with the correct target output (labels)?",
+                options: ["Unsupervised Learning", "Supervised Learning", "Reinforcement Learning", "Semi-supervised Learning"],
+                answer: "B"
+            },
+            {
+                q: "3. Supervised Learning Tasks\nIf you use an ML model to predict a continuous numerical value (like house price or temperature), what kind of task are you performing?",
+                options: ["Classification", "Regression", "Clustering", "Dimensionality Reduction"],
+                answer: "B"
+            },
+            {
+                q: "4. Unsupervised Learning Tasks\nWhich algorithm is typically used for segmenting a customer base into distinct groups based on purchasing behavior?",
+                options: ["Linear Regression", "Support Vector Machine (SVM)", "K-Means Clustering", "Decision Tree"],
+                answer: "C"
+            },
+            {
+                q: "5. Overfitting\nWhich scenario indicates that a model is overfitting?",
+                options: ["High error on both the training data and the test data.", "Low error on the training data and high error on the test data.", "Low error on both the training data and the test data.", "High bias and low variance."],
+                answer: "B"
+            },
+            {
+                q: "6. Bias-Variance Trade-off\nA model with high bias is generally characterized by:",
+                options: ["Being too complex and capturing noise in the training data.", "Being too simple and consistently missing the relationship between features and output.", "Having low prediction error on unseen data.", "Using too much training data."],
+                answer: "B"
+            },
+            {
+                q: "7. Model Evaluation\nThe F1 Score is the harmonic mean of which two metrics?",
+                options: ["Accuracy and Recall", "Specificity and Sensitivity", "Precision and Recall", "True Positive Rate and False Positive Rate"],
+                answer: "C"
+            },
+            {
+                q: "8. Decision Trees\nIn a Decision Tree algorithm, what criterion is commonly used to select the best feature for splitting a node?",
+                options: ["Root Mean Squared Error (RMSE)", "Information Gain or Gini Impurity", "Log Loss", "Manhattan Distance"],
+                answer: "B"
+            },
+            {
+                q: "9. Ensemble Methods\nWhich ensemble technique involves training multiple individual models independently and then taking a simple majority vote (for classification) or an average (for regression) of their predictions?",
+                options: ["Boosting", "Stacking", "Bagging (Bootstrap Aggregating)", "Adaboost"],
+                answer: "C"
+            },
+            {
+                q: "10. Neural Networks\nThe process of updating the weights and biases in a neural network to minimize the loss function is achieved using which primary optimization technique?",
+                options: ["Feature Scaling", "Gradient Descent", "K-Fold Cross-Validation", "Principal Component Analysis (PCA)"],
+                answer: "B"
+            },
+            {
+                q: "11. Support Vector Machines (SVM)\nWhat is the purpose of the Kernel Trick in Support Vector Machines?",
+                options: ["To simplify the calculation of the decision boundary in linear spaces.", "To implicitly map non-linearly separable data into a higher-dimensional feature space where it may become linearly separable.", "To reduce the number of features in the input data.", "To balance the dataset by oversampling the minority class."],
+                answer: "B"
+            },
+            {
+                q: "12. Dimensionality Reduction\nWhat is the primary goal of Principal Component Analysis (PCA)?",
+                options: ["To train a model using an unsupervised approach.", "To classify data points into predefined categories.", "To reduce the number of variables by finding new features (principal components) that capture the maximum variance in the data.", "To increase the complexity of a model to reduce bias."],
+                answer: "C"
+            },
+            {
+                q: "13. Cross-Validation\nWhich validation technique involves dividing the dataset into K equal subsets, training the model K times, and testing on a different subset each time?",
+                options: ["Holdout Validation", "K-Fold Cross-Validation", "Leave-One-Out Cross-Validation", "Bootstrap Aggregating"],
+                answer: "B"
+            },
+            {
+                q: "14. Linear Regression\nIn a Simple Linear Regression model, Y = $\\beta_0$ + $\\beta_1$ X + $\\epsilon$, what does $\\beta_1$ represent?",
+                options: ["The predicted value of Y when X is zero (Y-intercept).", "The residual error term.", "The slope, representing the change in Y for a one-unit change in X.", "The constant feature bias."],
+                answer: "C"
+            },
+            {
+                q: "15. Regularization\nL1 and L2 are common types of Regularization used to prevent overfitting. Which type is known for driving some feature weights exactly to zero, effectively performing feature selection?",
+                options: ["L1 Regularization (Lasso)", "L2 Regularization (Ridge)", "Elastic Net", "Dropout"],
+                answer: "A"
+            },
+            {
+                q: "16. K-Nearest Neighbors (KNN)\nThe K-Nearest Neighbors (KNN) algorithm is a type of:",
+                options: ["Parametric Model", "Non-parametric Model", "Model-based Clustering", "Deep Learning Model"],
+                answer: "B"
+            },
+            {
+                q: "17. Deep Learning\nWhat is the defining characteristic that distinguishes Deep Learning from traditional Machine Learning?",
+                options: ["Deep Learning models are exclusively used for text data.", "Deep Learning models are always faster to train.", "The use of multiple layers (deep architectures) in neural networks.", "The requirement for labeled training data."],
+                answer: "C"
+            },
+            {
+                q: "18. Reinforcement Learning (RL)\nIn the context of Reinforcement Learning, the numerical score or feedback that an agent receives from the environment after performing an action is called the:",
+                options: ["State", "Policy", "Reward", "Action Space"],
+                answer: "C"
+            },
+            {
+                q: "19. Data Preparation\nWhat process involves handling missing values, standardizing or normalizing features, and transforming categorical variables into a numerical format?",
+                options: ["Model Training", "Model Deployment", "Data Preprocessing/Data Wrangling", "Hyperparameter Tuning"],
+                answer: "C"
+            },
+            {
+                q: "20. Learning Curve\nIn the context of model diagnostics, a learning curve plots the model's performance (error or accuracy) against:",
+                options: ["The number of features used.", "The value of the F1 Score.", "The size of the training dataset.", "The complexity of the model (e.g., degree of a polynomial)."],
+                answer: "C"
+            }
+        ],
+        "Machine Learning": [
+            // Reusing AI questions as placeholder for ML
+            {
+                q: "1. Definition of Machine Learning\nWhich definition best describes Machine Learning (ML)?",
+                options: ["Programming computers to perform tasks by explicitly coding all rules and decision paths.", "The use of logic and reasoning to solve complex problems without data.", "The field of study that gives computers the ability to learn without being explicitly programmed.", "Applying statistical methods only to structured, numerical data."],
+                answer: "C"
+            },
+            // ... (19 more ML questions)
+        ],
+        "Data Science": [
+            {
+                q: "1. Definition of Data Science\nData Science is primarily defined as an interdisciplinary field that uses which three core elements to extract knowledge and insights from data?",
+                options: ["Computer Engineering, Logic Programming, and Art.", "Scientific Methods, Processes, and Systems to extract knowledge from data in various forms.", "Accounting, Business Management, and Law.", "Software Development, Hardware Optimization, and Networking."],
+                answer: "B"
+            },
+            // ... (8 more Data Science questions)
+        ],
+        "Web Development": [
+            {
+                q: "1. Fundamental Markup Language\nWhich language is primarily responsible for structuring the content of a web page?",
+                options: ["JavaScript", "CSS", "HTML", "PHP"],
+                answer: "C"
+            },
+            // ... (19 more Web Development questions)
+        ],
+        "Android Development": [
+            {
+                q: "1. Primary Language\nWhat is the primary programming language officially recommended by Google for modern Android application development?",
+                options: ["Java", "C++", "Kotlin", "Python"],
+                answer: "C"
+            },
+            // ... (19 more Android Development questions)
+        ],
+        "Cloud Computing- AWS": [
+            {
+                q: "1. Fundamental Definition\nWhat is the most accurate definition of Cloud Computing?",
+                options: ["Storing data locally on a large server farm.", "The on-demand delivery of compute power, database storage, applications, and other IT resources via the internet with pay-as-you-go pricing.", "Using virtualization technology to run multiple operating systems on one machine.", "Using a Content Delivery Network (CDN) to serve static files."],
+                answer: "B"
+            },
+            // ... (8 more Cloud Computing questions)
+        ],
+        "Java": [
+            { q: "1. What type of programming paradigm does Java primarily follow?", options: ["Procedural Programming", "Functional Programming", "Object-Oriented Programming (OOP)", "Logic Programming"], answer: "C" },
+            // ... (19 more Java questions)
+        ],
+        "Digital Marketing": [
+            { q: "1. Core Definition\nWhich term refers to marketing that utilizes electronic devices and the internet to promote products or services?", options: ["Traditional Marketing", "Content Marketing", "Digital Marketing", "Offline Advertising"], answer: "C" },
+            // ... (19 more Digital Marketing questions)
+        ],
+        "Finance": [
+            { q: "1. Financial Objective\nWhat is generally considered the primary goal of financial management for a publicly traded company?", options: ["Maximizing profit in the current year.", "Maximizing shareholder wealth (or stock price).", "Minimizing expenses and costs.", "Maintaining a high level of liquidity."], answer: "B" },
+            // ... (4 more Finance questions)
+        ],
+        "Cyber Security": [ // New Quiz for AIML/Cyber Security
+            { q: "1. Fundamental Principle\nWhat does the cyber security triad of Confidentiality, Integrity, and Availability (CIA Triad) primarily aim to protect?", options: ["Physical assets and network hardware.", "Information and data.", "Software applications and source code.", "User training and security policies."], answer: "B" },
+            { q: "2. Confidentiality\nWhich security measure is primarily designed to enforce Confidentiality?", options: ["Backup and Recovery Plans", "Digital Signatures", "Encryption", "Firewalls"], answer: "C" },
+            { q: "3. Integrity\nWhat security mechanism is used to verify that a message or file has not been altered or tampered with since it was created?", options: ["Authentication", "Access Control Lists (ACLs)", "Hashing (or Digital Signatures)", "Load Balancing"], answer: "C" },
+            { q: "4. Authentication\nWhat is the most secure form of user authentication?", options: ["Something you know (e.g., password)", "Something you have (e.g., key fob)", "Something you are (e.g., fingerprint)", "Multi-Factor Authentication (MFA)"], answer: "D" },
+            { q: "5. Network Security\nA device or software that monitors and controls incoming and outgoing network traffic based on predetermined security rules is called a:", options: ["Intrusion Detection System (IDS)", "Router", "Firewall", "Proxy Server"], answer: "C" },
+            { q: "6. Vulnerability vs. Threat\nIn cyber security, what is the term for a weakness or flaw in a system that an attacker could potentially exploit?", options: ["Threat", "Vulnerability", "Exploit", "Risk"], answer: "B" },
+            { q: "7. Attack Types\nWhich type of attack involves the attacker flooding a system or network with traffic, making it unavailable to legitimate users?", options: ["Phishing", "SQL Injection", "Man-in-the-Middle (MITM)", "Denial of Service (DoS) or Distributed Denial of Service (DDoS)"], answer: "D" },
+            { q: "8. Malware\nWhat is a type of malicious software that encrypts a victim's files, demanding a ransom payment to restore access?", options: ["Spyware", "Worm", "Trojan Horse", "Ransomware"], answer: "D" },
+            { q: "9. Social Engineering\nWhich common social engineering technique involves tricking a victim into revealing sensitive information via a deceptive email or website that mimics a legitimate entity?", options: ["Hacking", "Phishing", "Cryptojacking", "Cross-Site Scripting (XSS)"], answer: "B" },
+            { q: "10. Data Encryption\nWhich encryption method uses a single, secret key for both encrypting and decrypting data?", options: ["Asymmetric Encryption (Public-Key)", "Symmetric Encryption (Secret-Key)", "Hashing", "Digital Certificates"], answer: "B" },
+            { q: "11. Security Policy\nWhat document outlines the organization's rules and guidelines for protecting its information and IT assets?", options: ["Incident Response Plan", "Security Policy", "Risk Assessment Report", "Disaster Recovery Plan"], answer: "B" },
+            { q: "12. Security Logging\nWhat tool or system is used to collect, analyze, and manage security data and log events from various sources across an IT infrastructure?", options: ["Network Mapper (Nmap)", "Intrusion Prevention System (IPS)", "Security Information and Event Management (SIEM)", "Virtual Private Network (VPN)"], answer: "C" },
+            { q: "13. Password Security\nWhat cryptographic technique is used to store passwords securely, making it difficult for attackers to reverse-engineer the original password even if they gain access to the password database?", options: ["Encryption", "Tokenization", "Salting and Hashing", "Digital Signatures"], answer: "C" },
+            { q: "14. Wireless Security\nWhat is the most secure and currently recommended protocol for securing a Wi-Fi network?", options: ["WEP", "WPA", "WPA2 or WPA3", "SSID Hiding"], answer: "C" },
+            { q: "15. Least Privilege\nThe security principle that dictates a user or system should only be granted the minimum necessary permissions to perform their job or function is known as:", options: ["Separation of Duties", "Defense in Depth", "Principle of Least Privilege", "Need to Know"], answer: "C" },
+            { q: "16. Web Application Vulnerability\nWhich vulnerability occurs when user input is incorrectly treated as part of a database query, potentially allowing an attacker to read, modify, or delete data?", options: ["Cross-Site Scripting (XSS)", "Denial of Service (DoS)", "SQL Injection", "Buffer Overflow"], answer: "C" },
+            { q: "17. Incident Response\nWhat is the primary purpose of an Incident Response Plan?", options: ["To prevent all security incidents from ever occurring.", "To provide a structured process for handling and recovering from security breaches or attacks.", "To train all new employees on security awareness.", "To update software patches immediately upon release."], answer: "B" },
+            { q: "18. VPN\nWhat is the primary function of a Virtual Private Network (VPN)?", options: ["To filter out all known malware.", "To hide the user's computer files from local administrators.", "To create a secure, encrypted tunnel over a public network (like the internet).", "To optimize network speed and throughput."], answer: "C" },
+            { q: "19. Public Key Infrastructure (PKI)\nIn the context of PKI, what is the role of the Certificate Authority (CA)?", options: ["To manage user passwords.", "To create and manage encryption algorithms.", "To issue and manage digital certificates that bind a public key to a verified identity.", "To perform penetration testing."], answer: "C" },
+            { q: "20. Cryptographic Hashing\nWhich property is essential for a secure cryptographic hash function?", options: ["Being reversible (you can get the original message from the hash).", "Being extremely fast to compute.", "Resistance to collision (it is computationally infeasible to find two different inputs that produce the same hash output).", "Allowing easy modification of the output."], answer: "C" }
+        ]
+    };
+
+    const startQuizButton = document.getElementById('start-quiz-btn');
+    const courseSelect = document.getElementById('course-select');
+    const quizArea = document.getElementById('quiz-area');
+    const quizTitle = document.getElementById('quiz-title');
+    const quizForm = document.getElementById('quiz-form');
+    const finishBtn = document.getElementById('finish-btn');
+    const checkBtn = document.getElementById('check-btn');
+    const submitBtn = document.getElementById('submit-btn');
+    
+    // Convert option letters to an array for easy mapping
+    const optionLetters = ['A', 'B', 'C', 'D'];
+
+    function renderQuiz(courseName) {
+        const quiz = quizzes[courseName];
+        if (!quiz) {
+            alert(`Quiz for ${courseName} is not yet available.`);
+            return;
+        }
+
+        quizTitle.textContent = `Quiz on: ${courseName}`;
+        quizForm.innerHTML = ''; // Clear previous questions
+
+        quiz.forEach((qItem, index) => {
+            const questionElement = document.createElement('div');
+            questionElement.classList.add('question');
+            
+            // Replace \n with <br> for line breaks in the question text
+            let questionHtml = `<p>${qItem.q.replace(/\n/g, '<br>')}</p>`;
+            
+            qItem.options.forEach((option, optionIndex) => {
+                const optionLetter = optionLetters[optionIndex];
+                // Using 'name' attribute to group radio buttons
+                const radioName = `q${index + 1}`; 
+                
+                questionHtml += `
+                    <label>
+                        <input type="radio" name="${radioName}" value="${optionLetter}" required>
+                        <span style="font-weight: bold;">${optionLetter}.</span> ${option}
+                    </label>
+                `;
+            });
+
+            questionElement.innerHTML = questionHtml;
+            quizForm.appendChild(questionElement);
+        });
+
+        quizArea.style.display = 'block';
+        finishBtn.style.display = 'inline-block';
+        checkBtn.style.display = 'none';
+        submitBtn.style.display = 'none';
+        quizArea.scrollIntoView({ behavior: 'smooth' }); // Scroll to the quiz
+    }
+
+    startQuizButton.addEventListener('click', function() {
+        // Simple form validation 
+        const form = document.getElementById('student-data-form');
+        const requiredFields = form.querySelectorAll('[required]');
+        let isValid = true;
+        
+        requiredFields.forEach(field => {
+            if (!field.value || field.value === "") {
+                isValid = false;
+                field.style.border = '2px solid red';
+            } else {
+                 field.style.border = '1px solid #ccc';
+            }
+        });
+
+        if (isValid) {
+            const selectedCourse = courseSelect.value;
+            renderQuiz(selectedCourse);
+            form.style.display = 'none';
+        } else {
+            alert('Please fill out all the required details before starting the quiz.');
+        }
+    });
+
+    finishBtn.addEventListener('click', function() {
+        finishBtn.style.display = 'none';
+        checkBtn.style.display = 'inline-block';
+        submitBtn.style.display = 'inline-block';
+        alert("You have clicked 'Finish'! Please click 'Check' to review or 'Submit' to finalize your answers.");
+    });
+
+    checkBtn.addEventListener('click', function() {
+        // This button is conceptual as per your request. In a real system, it would show errors/score.
+        alert("Check feature initiated. (In a full application, this would highlight incomplete questions or show the correct answers after submission).");
+    });
+    
+    quizForm.addEventListener('submit', function(event) {
+        event.preventDefault();
+        
+        // 1. COLLECT STUDENT DATA
+        const studentData = {
+            name: document.getElementById('name').value,
+            email: document.getElementById('email').value,
+            phone: document.getElementById('phone').value,
+            college: document.getElementById('college').value,
+            department: document.getElementById('department').value,
+            year: document.getElementById('year').value,
+            course: courseSelect.value,
+        };
+        
+        // 2. COLLECT QUIZ ANSWERS (for score calculation on the server)
+        const quizAnswers = {};
+        const quizQuestions = quizForm.querySelectorAll('.question');
+        
+        quizQuestions.forEach((qDiv, index) => {
+            const qNum = index + 1;
+            const selectedOption = qDiv.querySelector(`input[name="q${qNum}"]:checked`);
+            quizAnswers[`Q${qNum}`] = selectedOption ? selectedOption.value : null;
+        });
+
+        // 3. SECURE DATA TRANSMISSION (Backend Placeholder)
+        // **IMPORTANT: THIS IS THE BACKEND PLACEHOLDER.**
+        console.log("Data to be sent securely to the server:", { studentData, quizAnswers });
+
+        alert("Quiz Submitted! Your data and answers have been securely recorded. You will not see your score, but the website owner now has access to your details for follow-up.");
+        
+        // Disable buttons after final submit
+        submitBtn.disabled = true;
+        checkBtn.disabled = true;
+
+        // In a real application, you would use fetch() here:
+        /*
+        fetch('YOUR_SECURE_SERVER_ENDPOINT_URL', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ studentData, quizAnswers })
+        })
+        .then(response => response.json())
+        .then(data => {
+            // Success handling (e.g., redirect to a thank you page)
+        })
+        .catch(error => {
+            // Error handling
+        });
+        */
+    });
+</script>
+</body>
+</html>
+
